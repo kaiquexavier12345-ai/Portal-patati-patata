@@ -130,11 +130,50 @@ section.active {
 }
 
 /* MÚSICAS */
+
+/* LISTA VERTICAL */
 .playlist {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px; /* AUMENTA O ESPAÇO ENTRE AS MÚSICAS */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 800px;
+    margin: auto;
 }
+
+/* CADA MÚSICA */
+.track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border-left: 8px solid #e53935;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+/* CORES ALTERNADAS (estilo personagens) */
+.track:nth-child(2n) { border-left-color: #1e88e5; }
+.track:nth-child(3n) { border-left-color: #43a047; }
+.track:nth-child(4n) { border-left-color: #fdd835; }
+
+/* HOVER BONITO */
+.track:hover {
+    transform: scale(1.02);
+    background: #fafafa;
+}
+
+/* TEXTO */
+.track p {
+    margin: 0;
+    font-weight: bold;
+    flex: 1;
+}
+
+/* PLAYER */
+.track audio {
+    width: 250px;
 }
 
 .track {
@@ -279,67 +318,84 @@ A partir de 2010, a dupla alcançou o auge com programas no SBT e uma enorme lin
 
 <!-- MÚSICAS -->
 <section id="musicas">
-    <h2>🎵 Sucessos do Patati Patatá</h2>
+
+    <h2>🎵 Playlist do Patati Patatá</h2>
 
     <div class="playlist">
 
-        <div class="track"><p>Se Você Quer Sorrir</p>
+        <div class="track">
+            <p>Se Você Quer Sorrir!</p>
             <audio controls src="musicas/se-voce-quer-sorrir.mp3"></audio>
         </div>
 
-        <div class="track"><p>Nosso Avião</p>
+        <div class="track">
+            <p>Nosso Avião</p>
             <audio controls src="musicas/nosso-aviao.mp3"></audio>
         </div>
 
-        <div class="track"><p>Homenagem às Professoras</p>
-            <audio controls src="musicas/homenagem-professoras.mp3"></audio>
+        <div class="track">
+            <p>A Dança do Macaco</p>
+            <audio controls src="musicas/danca-do-macaco.mp3"></audio>
         </div>
 
-        <div class="track"><p>A Dança do Lôro</p>
-            <audio controls src="musicas/danca-do-loro.mp3"></audio>
+        <div class="track">
+            <p>Trava Língua</p>
+            <audio controls src="musicas/trava-lingua.mp3"></audio>
         </div>
 
-        <div class="track"><p>Hora da Refeição</p>
+        <div class="track">
+            <p>Hora da Refeição</p>
             <audio controls src="musicas/hora-da-refeicao.mp3"></audio>
         </div>
 
-        <div class="track"><p>Trava Línguas</p>
-            <audio controls src="musicas/trava-linguas.mp3"></audio>
+        <div class="track">
+            <p>Mundo Encantado</p>
+            <audio controls src="musicas/mundo-encantado.mp3"></audio>
         </div>
 
-        <div class="track"><p>O Mestre Mandou</p>
-            <audio controls src="musicas/o-mestre-mandou.mp3"></audio>
+        <div class="track">
+            <p>A Minha Velha</p>
+            <audio controls src="musicas/a-minha-velha.mp3"></audio>
         </div>
 
-        <div class="track"><p>Piquenique</p>
-            <audio controls src="musicas/piquenique.mp3"></audio>
+        <div class="track">
+            <p>A Língua do P</p>
+            <audio controls src="musicas/lingua-do-p.mp3"></audio>
         </div>
 
-        <div class="track"><p>Obrigado Papai do Céu</p>
-            <audio controls src="musicas/obrigado-papai-do-ceu.mp3"></audio>
+        <div class="track">
+            <p>A Grama Foi Crescendo</p>
+            <audio controls src="musicas/a-grama-foi-crescendo.mp3"></audio>
         </div>
 
-        <div class="track"><p>A Metamorfose</p>
-            <audio controls src="musicas/a-metamorfose.mp3"></audio>
+        <div class="track">
+            <p>Chuveiro, Chuveiro</p>
+            <audio controls src="musicas/chuveiro.mp3"></audio>
         </div>
 
-        <div class="track"><p>Pot-Pourri: O Bom Menino / Muito Bom</p>
-            <audio controls src="musicas/potpourri-bom-menino.mp3"></audio>
+        <div class="track">
+            <p>Meu Cachorrinho</p>
+            <audio controls src="musicas/meu-cachorrinho.mp3"></audio>
         </div>
 
-        <div class="track"><p>Os Amigos do Peito</p>
-            <audio controls src="musicas/amigos-do-peito.mp3"></audio>
+        <div class="track">
+            <p>Chulé</p>
+            <audio controls src="musicas/chule.mp3"></audio>
         </div>
 
-        <div class="track"><p>O Jacaré</p>
-            <audio controls src="musicas/o-jacare.mp3"></audio>
+        <div class="track">
+            <p>As Mãos</p>
+            <audio controls src="musicas/as-maos.mp3"></audio>
         </div>
 
-        <div class="track"><p>As Vogais</p>
-            <audio controls src="musicas/as-vogais.mp3"></audio>
+        <div class="track">
+            <p>Trem da Fantasia</p>
+            <audio controls src="musicas/trem-da-fantasia.mp3"></audio>
         </div>
 
     </div>
+
+</section>
 </section>
 
 <!-- FOTOS -->
