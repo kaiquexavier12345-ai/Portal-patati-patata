@@ -7,6 +7,59 @@
 
 <style>
     
+    /* ESTILO JORNAL */
+#materias {
+    background: #f4f1e8;
+    padding: 30px;
+    border-radius: 15px;
+    font-family: "Georgia", serif;
+}
+
+/* TÍTULO */
+#materias h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 25px;
+    border-bottom: 3px double #000;
+    padding-bottom: 10px;
+}
+
+/* CADA MATÉRIA */
+.materia {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 20px;
+}
+
+/* IMAGEM */
+.materia img {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* TEXTO */
+.materia-texto {
+    flex: 1;
+}
+
+.materia-texto h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.materia-texto p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* EFEITO JORNAL ANTIGO */
+#materias {
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
+}
 /* ESTILO LIVRO */
 #historia {
     background: #fffdf5;
@@ -670,16 +723,31 @@ Continuam fazendo shows e eventos infantis pelo Brasil.
 <section id="materias">
     <h2>Matérias</h2>
 
-    <article>
+  <div class="materia">
+
+    <img src="img/materia1.jpg">
+
+    <div class="materia-texto">
         <h3>Nova turnê!</h3>
-        <p>Patati Patatá anunciam nova turnê pelo Brasil!</p>
-    </article>
+        <p>Patati Patatá anunciam nova turnê pelo Brasil, levando alegria para milhares de crianças com seus shows cheios de música e diversão.</p>
+    </div>
+
+</div>
+
+<div class="materia">
+
+    <img src="img/materia2.jpg">
+
+    <div class="materia-texto">
+        <h3>Curiosidade</h3>
+        <p>Você sabia que a dupla começou no circo? Antes da fama na televisão, eles já encantavam o público com apresentações cheias de humor e magia.</p>
+    </div>
+
+</div>
 
     <article>
         <h3>Curiosidade</h3>
-        <p>
-
-Patati (azul) e Patatá (vermelho) são personagens interpretados por atores diferentes ao longo dos anos.
+        <p>Patati (azul) e Patatá (vermelho) são personagens interpretados por atores diferentes ao longo dos anos.
 
 A marca pertence ao grupo Rinaldi Produções.
 
