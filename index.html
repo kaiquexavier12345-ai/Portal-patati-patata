@@ -92,35 +92,51 @@
 #materias {
     box-shadow: inset 0 0 20px rgba(0,0,0,0.1);
 }
-/* ESTILO LIVRO MAIS FINO */
+/* CONTAINER LIVRO */
 #historia {
     background: #fffdf5;
     border-radius: 15px;
-    padding: 40px;
+    padding: 50px;
     font-family: "Georgia", "Times New Roman", serif;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 
-    /* 👇 AQUI ESTÁ O SEGREDO */
-    max-width: 700px;
+    max-width: 800px;
     margin: 40px auto;
 }
 
-/* TEXTO */
+/* TEXTO EM COLUNAS */
+#historia .texto-livro {
+    column-count: 2;
+    column-gap: 40px;
+}
+
+/* PARÁGRAFOS */
 #historia p {
     text-align: justify;
-    text-indent: 40px;
+    text-indent: 30px;
     line-height: 1.9;
     font-size: 18px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+}
+
+/* LETRA INICIAL GIGANTE */
+#historia p:first-letter {
+    font-size: 50px;
+    float: left;
+    line-height: 1;
+    margin-right: 8px;
+    font-weight: bold;
+    color: #e53935;
 }
 
 /* TÍTULO */
 #historia h2 {
     text-align: center;
     margin-bottom: 30px;
-    font-size: 28px;
+    font-size: 30px;
     border-bottom: 2px solid #e53935;
-    display: block;
+    padding-bottom: 10px;
+}
 }
 /* DETALHE DECORATIVO */
 #historia::before {
@@ -572,38 +588,35 @@ allowfullscreen>
 
 <!-- HISTÓRIA -->
 <section id="historia">
+
     <h2>História</h2>
-    <p>
-🎪 Cronologia de Patati Patatá
+
+    <div class="texto-livro">
+
+        <p>🎪 Cronologia de Patati Patatá
 🟡 Anos 1980 — Origem
 
 1983–1984: Surge a dupla criada pelo empresário Rinaldi Faria.
 
-Inicialmente, os personagens não tinham os nomes Patati e Patatá — eram palhaços de circo e apresentações infantis.
+Inicialmente, os personagens não tinham os nomes Patati e Patatá — eram palhaços de circo e apresentações infantis.</p>
 
-        
-
-🔵 Anos 1990 — Consolidação
+        <p>🔵 Anos 1990 — Consolidação
 
 A dupla começa a ganhar força em shows ao vivo pelo Brasil.
 
 Adotam definitivamente os nomes Patati e Patatá.
 
-Lançam músicas infantis que começam a se popularizar.
+Lançam músicas infantis que começam a se popularizar.</p>
 
-🔴 Anos 2000 — Crescimento nacional
-
-        
+          <p>🔴 Anos 2000 — Crescimento nacional
 
 A dupla se torna um fenômeno no entretenimento infantil.
 
 Lançam CDs e DVDs com músicas educativas e divertidas.
 
-A marca se fortalece como produto infantil (brinquedos, produtos licenciados, etc.).
+A marca se fortalece como produto infantil (brinquedos, produtos licenciados, etc.).</p>
 
-        
-
-🌈 2010 — Explosão de sucesso
+        <p>🌈 2010 — Explosão de sucesso
 
 2010–2012: Assinam com o SBT.
 
@@ -615,17 +628,17 @@ Viralizam com músicas como:
 
 “Super Fantástico”
 
-“Se Você Quer Sorrir”
+“Se Você Quer Sorrir”</p>
 
-📺 2013–2015 — Auge na TV
+        <p>📺 2013–2015 — Auge na TV
 
 Permanecem no SBT com grande audiência infantil.
 
 Tornam-se um dos maiores fenômenos infantis da TV brasileira.
 
-Fazem turnês por todo o país.
+Fazem turnês por todo o país.</p>
 
-🎭 2016–2019 — Transição
+        <p>🎭 2016–2019 — Transição
 
 Saem do SBT.
 
@@ -637,17 +650,26 @@ Canal no YouTube
 
 Produtos licenciados
 
-A marca continua forte mesmo fora da TV aberta.
+A marca continua forte mesmo fora da TV aberta.</p>
 
-📱 2020–Atualidade — Era digital
+        <p>📱 2020–Atualidade — Era digital
 
 Fortalecimento no YouTube e plataformas digitais.
 
 Conteúdo voltado para crianças com músicas, histórias e educação.
 
-Continuam fazendo shows e eventos infantis pelo Brasil.
+Continuam fazendo shows e eventos infantis pelo Brasil.</p>
 
-    </p>
+        <p>🎨 Curiosidades
+
+Patati (azul) e Patatá (vermelho) são personagens interpretados por atores diferentes ao longo dos anos.
+
+A marca pertence ao grupo Rinaldi Produções.
+
+São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a nomes como Xuxa em popularidade com o público infantil.</p>
+
+    </div>
+
 </section>
 
 <!-- MÚSICAS -->
