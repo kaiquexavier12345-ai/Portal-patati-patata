@@ -538,7 +538,7 @@ function showTab(tabId) {
 // 🎠 CARROSSEL AUTOMÁTICO + BOTÕES
 // =======================
 let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
+let slides = [];
 
 function updateCarousel() {
     slides.forEach(slide => slide.classList.remove("active"));
@@ -616,6 +616,7 @@ function carregarMateriasPagina() {
 // 🚀 INICIAR TUDO
 // =======================
 window.onload = function() {
+    slides = document.querySelectorAll(".slide");
     updateCarousel();
     carregarMateriasHome();
     carregarMateriasPagina();
