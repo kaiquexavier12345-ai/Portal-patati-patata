@@ -523,8 +523,10 @@ const materias = [
 
 <script>
 
+<script>
+
 // =======================
-// 🔀 TROCA DE ABAS
+// 🔀 TROCA DE ABAS (GLOBAL)
 // =======================
 function showTab(tabId) {
     document.querySelectorAll("section").forEach(sec => {
@@ -535,98 +537,72 @@ function showTab(tabId) {
 }
 
 // =======================
-// 🎠 CARROSSEL AUTOMÁTICO + BOTÕES
+// 🚀 INICIAR TUDO COM SEGURANÇA
 // =======================
-let currentSlide = 0;
-let slides = [];
+document.addEventListener("DOMContentLoaded", function() {
 
-function updateCarousel() {
-    if (!slides.length) return;
-    slides.forEach(slide => slide.classList.remove("active"));
-    slides[currentSlide].classList.add("active");
-}
+    // 🎠 CARROSSEL
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
 
-function nextSlide() {
-    if (!slides.length) return;
-    currentSlide = (currentSlide + 1) % slides.length;
-    updateCarousel();
-}
-
-setInterval(nextSlide, 4000);
-}
-function showTab(tabId) {
-    document.querySelectorAll("section").forEach(sec => {
-        sec.classList.remove("active");
-    });
-
-    document.getElementById(tabId).classList.add("active");
-}
-// autoplay
-setInterval(nextSlide, 4000);
-
-// =======================
-// 📰 MATÉRIAS DINÂMICAS
-// =======================
-const materias = [
-    {
-        titulo: "Nova turnê!",
-        texto: "Patati Patatá anunciam shows pelo Brasil."
-    },
-    {
-        titulo: "Curiosidade",
-        texto: "Eles começaram no circo antes da TV."
-    },
-    {
-        titulo: "Sucesso infantil",
-        texto: "As músicas fazem sucesso há anos."
+    function updateCarousel() {
+        if (!slides.length) return;
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[currentSlide].classList.add("active");
     }
-];
 
-// Render HOME
-function carregarMateriasHome() {
-    const container = document.querySelector(".materias-home");
+    function nextSlide() {
+        if (!slides.length) return;
+        currentSlide = (currentSlide + 1) % slides.length;
+        updateCarousel();
+    }
 
-    if (!container) return;
-
-    container.innerHTML = "";
-
-    materias.slice(0, 3).forEach(m => {
-        container.innerHTML += `
-            <div class="card">
-                <h4>${m.titulo}</h4>
-                <p>${m.texto}</p>
-            </div>
-        `;
-    });
-}
-
-// Render página completa de matérias
-function carregarMateriasPagina() {
-    const container = document.querySelector("#materias");
-
-    if (!container) return;
-
-    container.innerHTML = "<h2>📰 Matérias</h2>";
-
-    materias.forEach(m => {
-        container.innerHTML += `
-            <div class="card">
-                <h3>${m.titulo}</h3>
-                <p>${m.texto}</p>
-            </div>
-        `;
-    });
-}
-
-// =======================
-// 🚀 INICIAR TUDO
-// =======================
-window.onload = function() {
-    slides = document.querySelectorAll(".slide");
+    setInterval(nextSlide, 4000);
     updateCarousel();
+
+    // 📰 MATÉRIAS
+    const materias = [
+        { titulo: "Nova turnê!", texto: "Patati Patatá anunciam shows pelo Brasil." },
+        { titulo: "Curiosidade", texto: "Eles começaram no circo antes da TV." },
+        { titulo: "Sucesso infantil", texto: "As músicas fazem sucesso há anos." }
+    ];
+
+    function carregarMateriasHome() {
+        const container = document.querySelector(".materias-home");
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        materias.slice(0, 3).forEach(m => {
+            container.innerHTML += `
+                <div class="card">
+                    <h4>${m.titulo}</h4>
+                    <p>${m.texto}</p>
+                </div>
+            `;
+        });
+    }
+
+    function carregarMateriasPagina() {
+        const container = document.querySelector("#materias");
+        if (!container) return;
+
+        container.innerHTML = "<h2>📰 Matérias</h2>";
+
+        materias.forEach(m => {
+            container.innerHTML += `
+                <div class="card">
+                    <h3>${m.titulo}</h3>
+                    <p>${m.texto}</p>
+                </div>
+            `;
+        });
+    }
+
     carregarMateriasHome();
     carregarMateriasPagina();
-};
+
+});
 
 </script>
 
