@@ -379,26 +379,129 @@ function showTab(tabId) {
 
     document.getElementById(tabId).classList.add("active");
 }
-</script>
+<script>
+
+// =======================
+// 🔀 TROCA DE ABAS
+// =======================
 function showTab(tabId) {
-    let sections = document.querySelectorAll("section");
-    sections.forEach(sec => sec.classList.remove("active"));
+    document.querySelectorAll("section").forEach(sec => {
+        sec.classList.remove("active");
+    });
 
-    document.getElementById(tabId).classList.add("active"); 
-    <script>
-let index = 0;
-let slides = document.querySelectorAll(".slide");
-
-function showSlide() {
-    slides.forEach(s => s.classList.remove("active"));
-    slides[index].classList.add("active");
-
-    index = (index + 1) % slides.length;
+    document.getElementById(tabId).classList.add("active");
 }
 
-setInterval(showSlide, 3000); // troca a cada 3 segundos
-</script>
+// =======================
+// 🎠 CARROSSEL AUTOMÁTICO + BOTÕES
+// =======================
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+function updateCarousel() {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[currentSlide].classList.add("active");
 }
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateCarousel();
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateCarousel();
+}
+
+// autoplay
+setInterval(nextSlide, 4000);
+
+// =======================
+// 📰 MATÉRIAS DINÂMICAS
+// =======================
+const materias = [
+    {
+        titulo: "Nova turnê!",
+        texto: "Patati Patatá anunciam shows pelo Brasil."
+    },
+    {
+        titulo: "Curiosidade",
+        texto: "Eles começaram no circo antes da TV."
+    },
+    {
+        titulo: "Sucesso infantil",
+        texto: "As músicas fazem sucesso há anos."
+    }
+];
+
+// Render HOME
+function carregarMateriasHome() {
+    const container = document.querySelector(".materias-home");
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    materias.slice(0, 3).forEach(m => {
+        container.innerHTML += `
+            <div class="card">
+                <h4>${m.titulo}</h4>
+                <p>${m.texto}</p>
+            </div>
+        `;
+    });
+}
+
+// Render página completa de matérias
+function carregarMateriasPagina() {
+    const container = document.querySelector("#materias");
+
+    if (!container) return;
+
+    container.innerHTML = "<h2>📰 Matérias</h2>";
+
+    materias.forEach(m => {
+        container.innerHTML += `
+            <div class="card">
+                <h3>${m.titulo}</h3>
+                <p>${m.texto}</p>
+            </div>
+        `;
+    });
+}
+
+// =======================
+// 🎥 VÍDEOS DINÂMICOS
+// =======================
+const videos = [
+    "https://www.youtube.com/embed/VIDEO_ID_1",
+    "https://www.youtube.com/embed/VIDEO_ID_2"
+];
+
+function carregarVideos() {
+    const container = document.querySelector(".videos");
+
+    if (!container) return;
+
+    container.innerHTML = "<h3>🎥 Vídeos</h3>";
+
+    videos.forEach(v => {
+        container.innerHTML += `
+            <iframe width="300" height="180" src="${v}" allowfullscreen></iframe>
+        `;
+    });
+}
+
+// =======================
+// 🚀 INICIAR TUDO
+// =======================
+window.onload = function() {
+    updateCarousel();
+    carregarMateriasHome();
+    carregarMateriasPagina();
+    carregarVideos();
+};
+
 </script>
 
 </body>
