@@ -513,12 +513,13 @@ A partir de 2010, a dupla alcançou o auge com programas no SBT e uma enorme lin
     </div>
 
 </section>
+    
 </section>
 
 <!-- FOTOS -->
 <section id="fotos">
     <h2>Galeria</h2>
-    <<div class="gallery">
+    <div class="gallery">
 
  <div class="photo-card">
     <img src="foto/patati.jpg" onclick="abrirImagem(this.src, 0)">
@@ -657,6 +658,28 @@ A partir de 2010, a dupla alcançou o auge com programas no SBT e uma enorme lin
 
 </footer>
 
+    <script>
+function abrirImagem(src, index) {
+    const lightbox = document.getElementById("lightbox");
+    const img = document.getElementById("img-ampliada");
+
+    img.src = src;
+
+    if (index % 2 === 0) {
+        img.classList.remove("azul");
+    } else {
+        img.classList.add("azul");
+    }
+
+    lightbox.style.display = "block";
+}
+
+function fecharImagem() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
+
+
 <script>
 
 // =======================
@@ -685,25 +708,7 @@ document.addEventListener("DOMContentLoaded", function() {
         slides[currentSlide].classList.add("active");
     }
 
-    function abrirImagem(src, index) {
-    const lightbox = document.getElementById("lightbox");
-    const img = document.getElementById("img-ampliada");
-
-    img.src = src;
-
-    // alterna cor
-    if (index % 2 === 0) {
-        img.classList.remove("azul");
-    } else {
-        img.classList.add("azul");
-    }
-
-    lightbox.style.display = "block";
-}
-
-function fecharImagem() {
-    document.getElementById("lightbox").style.display = "none";
-}
+  
 
     function nextSlide() {
         if (!slides.length) return;
