@@ -6,70 +6,29 @@
 <title>Patati Patatá - Fã Site</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #fff;
+.playlist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
 }
 
-/* HEADER */
-header {
-    background: linear-gradient(90deg, red, blue);
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-/* MENU */
-nav {
-    background: yellow;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-nav button {
-    background: green;
-    color: white;
-    border: none;
+.track {
+    background: linear-gradient(135deg, red, blue, yellow);
     padding: 15px;
-    cursor: pointer;
-    margin: 5px;
-    border-radius: 10px;
-}
-
-nav button:hover {
-    background: orange;
-}
-
-/* SEÇÕES */
-section {
-    display: none;
-    padding: 20px;
-}
-
-.active {
-    display: block;
-}
-
-/* GALERIA */
-.gallery img {
-    width: 200px;
-    margin: 10px;
-    border-radius: 10px;
-}
-
-/* MÚSICAS */
-.music-player {
-    margin: 10px 0;
-}
-
-/* RODAPÉ */
-footer {
-    background: blue;
+    border-radius: 20px;
     color: white;
     text-align: center;
-    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.track:hover {
+    transform: scale(1.05);
+}
+
+.track p {
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 </style>
 
@@ -92,37 +51,157 @@ footer {
 
 <!-- INÍCIO -->
 <section id="home" class="active">
-    <h2>Bem-vindo!</h2>
-    <p>Esse é um site dedicado ao Patati Patatá 💖</p>
+
+    <h2>🌈 Bem-vindo ao mundo do Patati Patatá!</h2>
+
+    <!-- 🎠 CARROSSEL -->
+    <div class="carousel">
+        <img src="img/slide1.jpg" class="slide active">
+        <img src="img/slide2.jpg" class="slide">
+        <img src="img/slide3.jpg" class="slide">
+    </div>
+
+    <!-- 🎥 VÍDEOS -->
+    <div class="videos">
+        <h3>🎥 Vídeos</h3>
+
+        <iframe width="300" height="180" 
+        src="https://www.youtube.com/embed/VIDEO_ID_1"
+        allowfullscreen></iframe>
+
+        <iframe width="300" height="180" 
+        src="https://www.youtube.com/embed/VIDEO_ID_2"
+        allowfullscreen></iframe>
+    </div>
+
+    <!-- 🌐 REDES SOCIAIS -->
+    <div class="social">
+        <h3>🌐 Redes Sociais</h3>
+        <a href="#" target="_blank">📺 YouTube</a>
+        <a href="#" target="_blank">📸 Instagram</a>
+        <a href="#" target="_blank">👍 Facebook</a>
+    </div>
+
+    <!-- 📰 MATÉRIAS (PREVIEW) -->
+    <div class="materias-home">
+        <h3>📰 Últimas Matérias</h3>
+
+        <div class="card">
+            <h4>Nova turnê!</h4>
+            <p>Patati Patatá anunciam shows pelo Brasil.</p>
+        </div>
+
+        <div class="card">
+            <h4>Curiosidades</h4>
+            <p>Veja fatos incríveis sobre a dupla.</p>
+        </div>
+
+    </div>
+
 </section>
 
 <!-- HISTÓRIA -->
 <section id="historia">
     <h2>História</h2>
     <p>
-        Patati Patatá é uma dupla de palhaços muito famosa no Brasil,
-        conhecida por suas músicas infantis, alegria e programas de TV.
+       A história do Patati Patatá é marcada por uma evolução que vai de um programa educativo na televisão até se tornar uma das maiores marcas infantis do Brasil. Embora hoje sejam conhecidos como uma dupla, a origem do nome e do grupo é bem diferente e envolve momentos de tragédia e superação. 
+1. Origem na TVE (Anos 80)
+O nome Patati Patatá surgiu em 1980 em um programa infantil da TVE do Rio de Janeiro. Diferente do formato atual, não era uma dupla de palhaços, mas um grupo circense composto por: 
+Tutti Fruti e Pirulito (palhaços).
+Pup (bailarina).
+Alacan (mágico). 
+YouTube
+YouTube
+ +2
+O programa tinha um forte cunho educativo e a famosa música "Se você quer sorrir e brincar" já fazia parte da trilha sonora naquela época. 
+YouTube
+YouTube
+ +1
+2. A Tragédia de 1985
+Em 1985, o grupo original sofreu um grave acidente de carro em Minas Gerais que resultou na morte de três integrantes (os irmãos Malcom, Patrícia e Maurício). A empresária Maria Teresa, que sobreviveu, foi obrigada por contratos a manter o grupo ativo, reformulando-o com novos integrantes, incluindo sua filha Paula. 
+YouTube
+YouTube
+ +1
+3. A Era Rinaldi Faria 
+O mágico Rinaldi Faria, que já acompanhava o grupo, assumiu a liderança da marca nos anos 90. Ele tomou decisões estratégicas que definiram o sucesso atual: 
+YouTube
+YouTube
+ +2
+Transformação em Dupla: Focou os personagens apenas nos dois palhaços, Patati e Patatá.
+Modelo de Negócio: Implementou apresentações em escolas e a venda de fotos e produtos (DVDs, brinquedos).
+Expansão: Criou várias duplas simultâneas (atores diferentes usando a mesma fantasia) para realizar shows em todo o país ao mesmo tempo. 
+YouTube
+YouTube
+ +1
+4. Sucesso Nacional e Identidade
+A partir de 2010, a dupla alcançou o auge com programas no SBT e uma enorme linha de produtos licenciados. Para manter a "magia", a identidade dos atores é mantida em sigilo; desde 2010, os intérpretes principais têm sido Wagner Rocha (Patati) e Henrique Namura (Patatá). 
+
     </p>
 </section>
 
 <!-- MÚSICAS -->
 <section id="musicas">
-    <h2>Músicas</h2>
+    <h2>🎵 Sucessos do Patati Patatá</h2>
 
-    <div class="music-player">
-        <p>Dança do Macaco</p>
-        <audio controls>
-            <source src="musicas/macaco.mp3" type="audio/mp3">
-        </audio>
+    <div class="playlist">
+
+        <div class="track"><p>Se Você Quer Sorrir</p>
+            <audio controls src="musicas/se-voce-quer-sorrir.mp3"></audio>
+        </div>
+
+        <div class="track"><p>Nosso Avião</p>
+            <audio controls src="musicas/nosso-aviao.mp3"></audio>
+        </div>
+
+        <div class="track"><p>Homenagem às Professoras</p>
+            <audio controls src="musicas/homenagem-professoras.mp3"></audio>
+        </div>
+
+        <div class="track"><p>A Dança do Lôro</p>
+            <audio controls src="musicas/danca-do-loro.mp3"></audio>
+        </div>
+
+        <div class="track"><p>Hora da Refeição</p>
+            <audio controls src="musicas/hora-da-refeicao.mp3"></audio>
+        </div>
+
+        <div class="track"><p>Trava Línguas</p>
+            <audio controls src="musicas/trava-linguas.mp3"></audio>
+        </div>
+
+        <div class="track"><p>O Mestre Mandou</p>
+            <audio controls src="musicas/o-mestre-mandou.mp3"></audio>
+        </div>
+
+        <div class="track"><p>Piquenique</p>
+            <audio controls src="musicas/piquenique.mp3"></audio>
+        </div>
+
+        <div class="track"><p>Obrigado Papai do Céu</p>
+            <audio controls src="musicas/obrigado-papai-do-ceu.mp3"></audio>
+        </div>
+
+        <div class="track"><p>A Metamorfose</p>
+            <audio controls src="musicas/a-metamorfose.mp3"></audio>
+        </div>
+
+        <div class="track"><p>Pot-Pourri: O Bom Menino / Muito Bom</p>
+            <audio controls src="musicas/potpourri-bom-menino.mp3"></audio>
+        </div>
+
+        <div class="track"><p>Os Amigos do Peito</p>
+            <audio controls src="musicas/amigos-do-peito.mp3"></audio>
+        </div>
+
+        <div class="track"><p>O Jacaré</p>
+            <audio controls src="musicas/o-jacare.mp3"></audio>
+        </div>
+
+        <div class="track"><p>As Vogais</p>
+            <audio controls src="musicas/as-vogais.mp3"></audio>
+        </div>
+
     </div>
-
-    <div class="music-player">
-        <p>Se Você Quer Sorrir</p>
-        <audio controls>
-            <source src="musicas/sorrir.mp3" type="audio/mp3">
-        </audio>
-    </div>
-
 </section>
 
 <!-- FOTOS -->
@@ -159,7 +238,20 @@ function showTab(tabId) {
     let sections = document.querySelectorAll("section");
     sections.forEach(sec => sec.classList.remove("active"));
 
-    document.getElementById(tabId).classList.add("active");
+    document.getElementById(tabId).classList.add("active"); 
+    <script>
+let index = 0;
+let slides = document.querySelectorAll(".slide");
+
+function showSlide() {
+    slides.forEach(s => s.classList.remove("active"));
+    slides[index].classList.add("active");
+
+    index = (index + 1) % slides.length;
+}
+
+setInterval(showSlide, 3000); // troca a cada 3 segundos
+</script>
 }
 </script>
 
