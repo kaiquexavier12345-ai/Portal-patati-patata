@@ -187,14 +187,36 @@ section.active {
     border-left: 5px solid #1e88e5;
 }
 
-/* GALERIA */
+/* GALERIA ESTILO ÁLBUM */
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 10px;
 }
 
-.gallery img {
+/* QUADRO DA FOTO */
+.photo-card {
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: 0.3s;
+    border: 4px solid #e53935;
+}
+
+/* alternando cores */
+.photo-card:nth-child(even) {
+    border-color: #1e88e5;
+}
+
+/* efeito hover bonito */
+.photo-card:hover {
+    transform: scale(1.05) rotate(-1deg);
+}
+
+/* imagem */
+.photo-card img {
     width: 100%;
     border-radius: 10px;
 }
@@ -407,10 +429,57 @@ A partir de 2010, a dupla alcançou o auge com programas no SBT e uma enorme lin
 <!-- FOTOS -->
 <section id="fotos">
     <h2>Galeria</h2>
-    <div class="gallery">
-        <img src="img/patati.jpg">
-        <img src="img/patata.jpg">
+    <<div class="gallery">
+
+    <div class="photo-card">
+        <img src="foto/patati.jpg">
     </div>
+
+    <div class="photo-card">
+        <img src="foto/patata.jpg">
+    </div>
+
+    <div class="photo-card">
+        <img src="foto/slide1.jpg">
+    </div>
+
+    <div class="photo-card">
+        <img src="foto/slide2.jpg">
+    </div>
+        
+<div class="photo-card">
+        <img src="foto/slide3.jpg">
+    </div>
+        
+        <div class="photo-card">
+        <img src="foto/slide4.jpg">
+    </div>
+        
+        <div class="photo-card">
+        <img src="foto/slide5.jpg">
+    </div>
+        
+        <div class="photo-card">
+        <img src="foto/slide6.jpg">
+    </div>
+        
+        <div class="photo-card">
+        <img src="foto/slide7.jpg">
+    </div>
+        
+        <div class="photo-card">
+        <img src="foto/slide8.jpg">
+    </div>
+        
+        <div class="photo-card">
+        <img src="foto/slide9.jpg">
+    </div>
+        
+        <div class="photo-card">
+        <img src="foto/slide10.jpg">
+    </div>
+        
+</div>
 </section>
 
 <!-- MATÉRIAS -->
