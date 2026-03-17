@@ -229,6 +229,51 @@ footer {
     padding: 15px;
     margin-top: 30px;
 }
+    /* TÍTULO */
+.titulo-creditos {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+/* CONTAINER */
+.creditos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* CARDS */
+.credito-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    border-top: 6px solid #e53935;
+}
+
+/* alternando cores */
+.credito-card:nth-child(even) {
+    border-top: 6px solid #1e88e5;
+}
+
+/* destaque especial */
+.credito-card.destaque {
+    background: linear-gradient(135deg, #e53935, #1e88e5);
+    color: white;
+}
+
+/* hover bonito */
+.credito-card:hover {
+    transform: translateY(-5px) scale(1.03);
+}
+
+/* texto */
+.credito-card h3 {
+    margin-bottom: 10px;
+}
 </style>
 
 </head>
@@ -497,9 +542,46 @@ A partir de 2010, a dupla alcançou o auge com programas no SBT e uma enorme lin
     </article>
 
 </section>
+<section id="creditos">
 
+    <h2 class="titulo-creditos">🎬 Créditos</h2>
+
+    <div class="creditos-container">
+
+        <div class="credito-card">
+            <h3>👤 Criador</h3>
+            <p>Site criado por fã com muito carinho ❤️
+               agradeço ao Ryan pelas materia
+               e ao bernardo pela ajuda ao conseguir as fotos</p>
+        </div>
+
+        <div class="credito-card">
+            <h3>🎵 Músicas</h3>
+            <p>Conteúdo musical pertence aos seus respectivos autores.</p>
+        </div>
+
+        <div class="credito-card">
+            <h3>🖼️ Imagens</h3>
+            <p>Imagens usadas para fins de homenagem.</p>
+        </div>
+
+        <div class="credito-card">
+            <h3>🎥 Vídeos</h3>
+            <p>Incorporados diretamente do YouTube.</p>
+        </div>
+
+        <div class="credito-card destaque">
+            <h3>⭐ Projeto</h3>
+            <p>Um site dedicado à dupla :contentReference[oaicite:0]{index=0} 🎪</p>
+        </div>
+
+    </div>
+
+</section>
+    
 <footer>
     <p>Site feito por fã ❤️</p>
+    <p>© Conteúdo pertencente aos seus criadores originais</p>
 </footer>
 
 <script>
