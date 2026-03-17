@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patati Patatá - Fã Site</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(90deg, red, blue);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* MENU */
+nav {
+    background: yellow;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav button {
+    background: green;
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+nav button:hover {
+    background: orange;
+}
+
+/* SEÇÕES */
+section {
+    display: none;
+    padding: 20px;
+}
+
+.active {
+    display: block;
+}
+
+/* GALERIA */
+.gallery img {
+    width: 200px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+/* MÚSICAS */
+.music-player {
+    margin: 10px 0;
+}
+
+/* RODAPÉ */
+footer {
+    background: blue;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Patati Patatá</h1>
+    <p>O site mais divertido da dupla!</p>
+</header>
+
+<nav>
+    <button onclick="showTab('home')">Início</button>
+    <button onclick="showTab('historia')">História</button>
+    <button onclick="showTab('musicas')">Músicas</button>
+    <button onclick="showTab('fotos')">Fotos</button>
+    <button onclick="showTab('materias')">Matérias</button>
+</nav>
+
+<!-- INÍCIO -->
+<section id="home" class="active">
+    <h2>Bem-vindo!</h2>
+    <p>Esse é um site dedicado ao Patati Patatá 💖</p>
+</section>
+
+<!-- HISTÓRIA -->
+<section id="historia">
+    <h2>História</h2>
+    <p>
+        Patati Patatá é uma dupla de palhaços muito famosa no Brasil,
+        conhecida por suas músicas infantis, alegria e programas de TV.
+    </p>
+</section>
+
+<!-- MÚSICAS -->
+<section id="musicas">
+    <h2>Músicas</h2>
+
+    <div class="music-player">
+        <p>Dança do Macaco</p>
+        <audio controls>
+            <source src="musicas/macaco.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+    <div class="music-player">
+        <p>Se Você Quer Sorrir</p>
+        <audio controls>
+            <source src="musicas/sorrir.mp3" type="audio/mp3">
+        </audio>
+    </div>
+
+</section>
+
+<!-- FOTOS -->
+<section id="fotos">
+    <h2>Galeria</h2>
+    <div class="gallery">
+        <img src="img/patati.jpg">
+        <img src="img/patata.jpg">
+    </div>
+</section>
+
+<!-- MATÉRIAS -->
+<section id="materias">
+    <h2>Matérias</h2>
+
+    <article>
+        <h3>Nova turnê!</h3>
+        <p>Patati Patatá anunciam nova turnê pelo Brasil!</p>
+    </article>
+
+    <article>
+        <h3>Curiosidade</h3>
+        <p>Você sabia que eles começaram no circo?</p>
+    </article>
+
+</section>
+
+<footer>
+    <p>Site feito por fã ❤️</p>
+</footer>
+
+<script>
+function showTab(tabId) {
+    let sections = document.querySelectorAll("section");
+    sections.forEach(sec => sec.classList.remove("active"));
+
+    document.getElementById(tabId).classList.add("active");
+}
+</script>
+
+</body>
+</html>
