@@ -541,20 +541,26 @@ let currentSlide = 0;
 let slides = [];
 
 function updateCarousel() {
+    if (!slides.length) return;
     slides.forEach(slide => slide.classList.remove("active"));
     slides[currentSlide].classList.add("active");
 }
 
 function nextSlide() {
+    if (!slides.length) return;
     currentSlide = (currentSlide + 1) % slides.length;
     updateCarousel();
 }
 
-function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    updateCarousel();
+setInterval(nextSlide, 4000);
 }
+function showTab(tabId) {
+    document.querySelectorAll("section").forEach(sec => {
+        sec.classList.remove("active");
+    });
 
+    document.getElementById(tabId).classList.add("active");
+}
 // autoplay
 setInterval(nextSlide, 4000);
 
