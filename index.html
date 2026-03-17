@@ -485,6 +485,94 @@ const materias = [
 ];
 
 // Render HOME
+...
+</section>
+
+<!-- FOTOS -->
+<section id="fotos">
+    <h2>Galeria</h2>
+    <div class="gallery">
+        <img src="img/patati.jpg">
+        <img src="img/patata.jpg">
+    </div>
+</section>
+
+<!-- MATÉRIAS -->
+<section id="materias">
+    <h2>Matérias</h2>
+
+    <article>
+        <h3>Nova turnê!</h3>
+        <p>Patati Patatá anunciam nova turnê pelo Brasil!</p>
+    </article>
+
+    <article>
+        <h3>Curiosidade</h3>
+        <p>Você sabia que eles começaram no circo?</p>
+    </article>
+
+</section>
+
+<footer>
+    <p>Site feito por fã ❤️</p>
+</footer>
+
+<script>
+
+// =======================
+// 🔀 TROCA DE ABAS
+// =======================
+function showTab(tabId) {
+    document.querySelectorAll("section").forEach(sec => {
+        sec.classList.remove("active");
+    });
+
+    document.getElementById(tabId).classList.add("active");
+}
+
+// =======================
+// 🎠 CARROSSEL AUTOMÁTICO + BOTÕES
+// =======================
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+function updateCarousel() {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[currentSlide].classList.add("active");
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    updateCarousel();
+}
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    updateCarousel();
+}
+
+// autoplay
+setInterval(nextSlide, 4000);
+
+// =======================
+// 📰 MATÉRIAS DINÂMICAS
+// =======================
+const materias = [
+    {
+        titulo: "Nova turnê!",
+        texto: "Patati Patatá anunciam shows pelo Brasil."
+    },
+    {
+        titulo: "Curiosidade",
+        texto: "Eles começaram no circo antes da TV."
+    },
+    {
+        titulo: "Sucesso infantil",
+        texto: "As músicas fazem sucesso há anos."
+    }
+];
+
+// Render HOME
 function carregarMateriasHome() {
     const container = document.querySelector(".materias-home");
 
@@ -521,38 +609,15 @@ function carregarMateriasPagina() {
 }
 
 // =======================
-// 🎥 VÍDEOS DINÂMICOS
-// =======================
-const videos = [
-    "https://www.youtube.com/embed/VIDEO_ID_1",
-    "https://www.youtube.com/embed/VIDEO_ID_2"
-];
-
-function carregarVideos() {
-    const container = document.querySelector(".videos");
-
-    if (!container) return;
-
-    container.innerHTML = "<h3>🎥 Vídeos</h3>";
-
-    videos.forEach(v => {
-        container.innerHTML += `
-            <iframe width="300" height="180" src="${v}" allowfullscreen></iframe>
-        `;
-    });
-}
-
-// =======================
 // 🚀 INICIAR TUDO
 // =======================
 window.onload = function() {
     updateCarousel();
     carregarMateriasHome();
     carregarMateriasPagina();
-    carregarVideos();
 };
 
 </script>
-    
+
 </body>
 </html>
