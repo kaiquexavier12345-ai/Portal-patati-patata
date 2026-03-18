@@ -672,20 +672,20 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 
 </section>
 
-<section id="musicas" style="padding:40px; font-family: 'Arial', sans-serif; background:#121212; color:#fff;">
-    <h2 style="text-align:center; margin-bottom:30px; font-size:2em;">🎵 Músicas</h2>
+<section id="musicas" style="padding:40px; font-family: 'Arial', sans-serif; background:#fceedd; color:#000;">
+    <h2 style="text-align:center; margin-bottom:30px; font-size:2em; color:#e60000;">🎵 Músicas Patati Patatá</h2>
 
     <!-- PLAYER PRINCIPAL -->
-    <div id="player-principal" style="display:flex; align-items:center; background:#282828; padding:20px; border-radius:15px; margin-bottom:50px; box-shadow:0 4px 20px rgba(0,0,0,0.5);">
+    <div id="player-principal" style="display:flex; align-items:center; background:#00aaff; padding:20px; border-radius:15px; margin-bottom:50px; box-shadow:0 4px 20px rgba(0,0,0,0.3);">
         <img id="capa-player" src="img/capa-placeholder.jpg" alt="Capa do player" style="width:120px; height:120px; object-fit:cover; border-radius:10px; margin-right:20px;">
         <div style="flex:1;">
-            <h3 id="nome-musica-atual" style="margin-bottom:15px;">Escolha uma música</h3>
-            <audio id="player-geral" controls style="width:100%; outline:none; background:#282828; color:#fff;">
+            <h3 id="nome-musica-atual" style="margin-bottom:15px; color:#fff;">Escolha uma música</h3>
+            <audio id="player-geral" controls style="width:100%; outline:none;">
                 Seu navegador não suporta o elemento de áudio.
             </audio>
             <div style="margin-top:10px;">
-                <button onclick="tocarAnterior()" style="padding:8px 12px; margin-right:10px; background:#1DB954; border:none; border-radius:50px; color:#fff; cursor:pointer;">⏮️</button>
-                <button onclick="tocarProximo()" style="padding:8px 12px; background:#1DB954; border:none; border-radius:50px; color:#fff; cursor:pointer;">⏭️</button>
+                <button onclick="tocarAnterior()" style="padding:8px 12px; margin-right:10px; background:#ffcc00; border:none; border-radius:50px; color:#000; cursor:pointer;">⏮️</button>
+                <button onclick="tocarProximo()" style="padding:8px 12px; background:#ff0000; border:none; border-radius:50px; color:#fff; cursor:pointer;">⏭️</button>
             </div>
         </div>
     </div>
@@ -693,10 +693,10 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
     <!-- ÁLBUNS -->
     <div id="albuns-container" style="display:flex; flex-direction:column; gap:40px;">
         <!-- Álbum 1 -->
-        <div class="album" style="background:#181818; padding:20px; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.4);">
+        <div class="album" style="background:#00aaff; padding:20px; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.3);">
             <div style="display:flex; align-items:center; gap:20px; margin-bottom:15px;">
                 <img src="img/capa_grandes.jpg" alt="Os Grandes Sucessos" style="width:100px; height:100px; object-fit:cover; border-radius:10px;">
-                <h3 style="font-size:1.4em;">📀 Os Grandes Sucessos</h3>
+                <h3 style="font-size:1.4em; color:#fff;">📀 Os Grandes Sucessos</h3>
             </div>
             <ul style="list-style:none; padding-left:0;">
                 <li onclick="tocarAgora('musicas/Se_Voce_Quer_Sorrir.mp3','img/capa_grandes.jpg','Se Você Quer Sorrir')" class="musica">Se Você Quer Sorrir</li>
@@ -717,10 +717,10 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
         </div>
 
         <!-- Álbum 2 -->
-        <div class="album" style="background:#181818; padding:20px; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.4);">
+        <div class="album" style="background:#ff0000; padding:20px; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.3);">
             <div style="display:flex; align-items:center; gap:20px; margin-bottom:15px;">
                 <img src="img/capa_castelo.jpg" alt="Castelo da Fantasia" style="width:100px; height:100px; object-fit:cover; border-radius:10px;">
-                <h3 style="font-size:1.4em;">📀 Castelo da Fantasia</h3>
+                <h3 style="font-size:1.4em; color:#fff;">📀 Castelo da Fantasia</h3>
             </div>
             <ul style="list-style:none; padding-left:0;">
                 <li onclick="tocarAgora('musicas/Castelo_Da_Fantasia.mp3','img/capa_castelo.jpg','Castelo Da Fantasia')" class="musica">Castelo Da Fantasia</li>
@@ -750,11 +750,11 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
     transition: background 0.2s, color 0.2s;
 }
 .musica:hover {
-    background:#1DB954;
-    color:#fff;
+    background:#ffcc00;
+    color:#000;
 }
 .musica.tocando {
-    background:#1ED760;
+    background:#e60000;
     color:#fff;
 }
 </style>
