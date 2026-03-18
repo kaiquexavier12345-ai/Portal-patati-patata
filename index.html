@@ -742,97 +742,127 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 
 <section id="musicas">
 
-    <h2>🎵 Portal Patati Patatá - Músicas</h2>
+  <h2>🎵 Portal Patati Patatá - Músicas</h2>
 
-    <!-- PLAYER FIXO -->
-    <div class="player-geral">
-        <img src="img/capa-album.jpg" alt="Capa do álbum" class="capa-player">
-        <div class="info-player">
-            <h3 id="nome-musica-atual">Se Você Quer Sorrir!</h3>
-            <audio id="player-principal" controls>
-                <source src="musicas/se-voce-quer-sorrir.mp3" type="audio/mpeg">
-            </audio>
-        </div>
-    </div>
+  <!-- PLAYER GERAL (toca todas as músicas do site) -->
+  <div class="player-geral">
+      <img src="img/capa-album.jpg" alt="Capa do player geral" class="capa-player">
+      <div class="info-player">
+          <h3 id="nome-musica-atual">Castelo da Fantasia</h3>
+          <audio id="player-geral" controls></audio>
+      </div>
+  </div>
 
-    <!-- LISTA DE MÚSICAS (estilo Spotify) -->
-    <div class="playlist-spotify">
-        <ul>
-            <li onclick="tocarMusica('musicas/se-voce-quer-sorrir.mp3', 'Se Você Quer Sorrir!')">Se Você Quer Sorrir!</li>
-            <li onclick="tocarMusica('musicas/nosso-aviao.mp3', 'Nosso Avião')">Nosso Avião</li>
-            <li onclick="tocarMusica('musicas/danca-do-macaco.mp3', 'A Dança do Macaco')">A Dança do Macaco</li>
-            <li onclick="tocarMusica('musicas/trava-lingua.mp3', 'Trava Língua')">Trava Língua</li>
-            <li onclick="tocarMusica('musicas/hora-da-refeicao.mp3', 'Hora da Refeição')">Hora da Refeição</li>
-            <li onclick="tocarMusica('musicas/mundo-encantado.mp3', 'Mundo Encantado')">Mundo Encantado</li>
-            <li onclick="tocarMusica('musicas/a-minha-velha.mp3', 'A Minha Velha')">A Minha Velha</li>
-            <li onclick="tocarMusica('musicas/lingua-do-p.mp3', 'A Língua do P')">A Língua do P</li>
-            <li onclick="tocarMusica('musicas/a-grama-foi-crescendo.mp3', 'A Grama Foi Crescendo')">A Grama Foi Crescendo</li>
-            <li onclick="tocarMusica('musicas/chuveiro.mp3', 'Chuveiro, Chuveiro')">Chuveiro, Chuveiro</li>
-            <li onclick="tocarMusica('musicas/meu-cachorrinho.mp3', 'Meu Cachorrinho')">Meu Cachorrinho</li>
-            <li onclick="tocarMusica('musicas/chule.mp3', 'Chulé')">Chulé</li>
-            <li onclick="tocarMusica('musicas/as-maos.mp3', 'As Mãos')">As Mãos</li>
-            <li onclick="tocarMusica('musicas/trem-da-fantasia.mp3', 'Trem da Fantasia')">Trem da Fantasia</li>
-        </ul>
-    </div>
+  <!-- LISTA DE TODAS AS MÚSICAS -->
+  <div class="playlist-spotify">
+      <ul id="playlist-geral"></ul>
+  </div>
 
-    <h2>🎵 Álbum: castelo da fantasia </h2>
+  <!-- ÁLBUM: CASTELO DA FANTASIA -->
+  <h2>🎵 Álbum: Castelo da Fantasia</h2>
 
-    <!-- Player geral -->
-    <div class="album-player">
-        <img src="img/capa-album1.jpg" alt="Capa do Álbum" class="capa-player">
-        <h3>Castelo da Fantasia</h3>
-        <audio id="player-geral" controls></audio>
-    </div>
+  <div class="album-player">
+      <img src="img/capa-album1.jpg" alt="Capa do Álbum" class="capa-player">
+      <h3>Castelo da Fantasia</h3>
+      <audio id="player-album1" controls></audio>
+  </div>
 
-    <!-- Lista de músicas -->
-    <div class="playlist-album">
-        <div class="track" data-src="musicas/castelo-da-fantasia.mp3">
-            <p>Castelo da Fantasia</p>
-        </div>
-        <div class="track" data-src="musicas/a-danca-do-soldadinho.mp3">
-            <p>A Dança do Soldadinho</p>
-        </div>
-        <div class="track" data-src="musicas/animais-de-estimacao.mp3">
-            <p>Animais de Estimação</p>
-        </div>
-        <div class="track" data-src="musicas/pula-mais-do-que-pipoca.mp3">
-            <p>Pula Mais do Que Pipoca</p>
-        </div>
-        <div class="track" data-src="musicas/cancao-de-ninar.mp3">
-            <p>Canção de Ninar</p>
-        </div>
-        <div class="track" data-src="musicas/a-formiguinha.mp3">
-            <p>A Formiguinha</p>
-        </div>
-        <div class="track" data-src="musicas/parabens.mp3">
-            <p>Parabéns</p>
-        </div>
-        <div class="track" data-src="musicas/magia-no-ar.mp3">
-            <p>Magia No Ar</p>
-        </div>
-        <div class="track" data-src="musicas/as-quatro-estacoes-do-ano.mp3">
-            <p>As Quatro Estações do Ano</p>
-        </div>
-        <div class="track" data-src="musicas/um-mundo-mais-bonito.mp3">
-            <p>Um Mundo Mais Bonito</p>
-        </div>
-        <div class="track" data-src="musicas/piquenique.mp3">
-            <p>Piquenique</p>
-        </div>
-        <div class="track" data-src="musicas/o-que-e-o-que-e.mp3">
-            <p>O Que É, o Que É?</p>
-        </div>
-        <div class="track" data-src="musicas/tabuada-do-nove.mp3">
-            <p>Tabuada do Nove</p>
-        </div>
-        <div class="track" data-src="musicas/amigos-para-sempre.mp3">
-            <p>Amigos Para Sempre</p>
-        </div>
-    </div>
-    
+  <div class="playlist-album" id="playlist-album1">
+      <div class="track" data-src="musicas/castelo-da-fantasia.mp3">Castelo da Fantasia</div>
+      <div class="track" data-src="musicas/a-danca-do-soldadinho.mp3">A Dança do Soldadinho</div>
+      <div class="track" data-src="musicas/animais-de-estimacao.mp3">Animais de Estimação</div>
+      <div class="track" data-src="musicas/pula-mais-do-que-pipoca.mp3">Pula Mais do Que Pipoca</div>
+      <div class="track" data-src="musicas/cancao-de-ninar.mp3">Canção de Ninar</div>
+      <div class="track" data-src="musicas/a-formiguinha.mp3">A Formiguinha</div>
+      <div class="track" data-src="musicas/parabens.mp3">Parabéns</div>
+      <div class="track" data-src="musicas/magia-no-ar.mp3">Magia No Ar</div>
+      <div class="track" data-src="musicas/as-quatro-estacoes-do-ano.mp3">As Quatro Estações do Ano</div>
+      <div class="track" data-src="musicas/um-mundo-mais-bonito.mp3">Um Mundo Mais Bonito</div>
+      <div class="track" data-src="musicas/piquenique.mp3">Piquenique</div>
+      <div class="track" data-src="musicas/o-que-e-o-que-e.mp3">O Que É, o Que É?</div>
+      <div class="track" data-src="musicas/tabuada-do-nove.mp3">Tabuada do Nove</div>
+      <div class="track" data-src="musicas/amigos-para-sempre.mp3">Amigos Para Sempre</div>
+  </div>
 
 </section>
-    
+
+<script>
+// ==========================
+// 🎵 PLAYLIST GERAL
+// ==========================
+const playlistGeralMusicas = [
+  {src:"musicas/castelo-da-fantasia.mp3", nome:"Castelo da Fantasia"},
+  {src:"musicas/a-danca-do-soldadinho.mp3", nome:"A Dança do Soldadinho"},
+  {src:"musicas/animais-de-estimacao.mp3", nome:"Animais de Estimação"},
+  {src:"musicas/pula-mais-do-que-pipoca.mp3", nome:"Pula Mais do Que Pipoca"},
+  {src:"musicas/cancao-de-ninar.mp3", nome:"Canção de Ninar"},
+  {src:"musicas/a-formiguinha.mp3", nome:"A Formiguinha"},
+  {src:"musicas/parabens.mp3", nome:"Parabéns"},
+  {src:"musicas/magia-no-ar.mp3", nome:"Magia No Ar"},
+  {src:"musicas/as-quatro-estacoes-do-ano.mp3", nome:"As Quatro Estações do Ano"},
+  {src:"musicas/um-mundo-mais-bonito.mp3", nome:"Um Mundo Mais Bonito"},
+  {src:"musicas/piquenique.mp3", nome:"Piquenique"},
+  {src:"musicas/o-que-e-o-que-e.mp3", nome:"O Que É, o Que É?"},
+  {src:"musicas/tabuada-do-nove.mp3", nome:"Tabuada do Nove"},
+  {src:"musicas/amigos-para-sempre.mp3", nome:"Amigos Para Sempre"}
+];
+
+const playlistGeralContainer = document.getElementById("playlist-geral");
+const playerGeral = document.getElementById("player-geral");
+const nomeMusicaAtual = document.getElementById("nome-musica-atual");
+let indexGeral = 0;
+
+// Carregar lista no HTML
+playlistGeralMusicas.forEach((musica,i) => {
+  const li = document.createElement("li");
+  li.textContent = musica.nome;
+  li.addEventListener("click", ()=> {
+    tocarMusicaGeral(i);
+  });
+  playlistGeralContainer.appendChild(li);
+});
+
+function tocarMusicaGeral(i){
+  playerGeral.src = playlistGeralMusicas[i].src;
+  nomeMusicaAtual.textContent = playlistGeralMusicas[i].nome;
+  playerGeral.play();
+  indexGeral = i;
+}
+
+// Próxima música automática
+playerGeral.addEventListener("ended", ()=>{
+  indexGeral = (indexGeral+1)%playlistGeralMusicas.length;
+  tocarMusicaGeral(indexGeral);
+});
+
+// ==========================
+// 🎵 PLAYER DE ÁLBUM 1
+// ==========================
+const playerAlbum1 = document.getElementById("player-album1");
+const tracksAlbum1 = document.querySelectorAll("#playlist-album1 .track");
+let currentAlbum1 = 0;
+
+function playTrackAlbum1(index){
+  const src = tracksAlbum1[index].dataset.src;
+  playerAlbum1.src = src;
+  playerAlbum1.play();
+  currentAlbum1 = index;
+}
+
+// Cliques
+tracksAlbum1.forEach((track,i)=>{
+  track.addEventListener("click",()=>playTrackAlbum1(i));
+});
+
+// Próxima automática
+playerAlbum1.addEventListener("ended", ()=>{
+  currentAlbum1 = (currentAlbum1+1)%tracksAlbum1.length;
+  playTrackAlbum1(currentAlbum1);
+});
+
+// Iniciar primeira música
+playTrackAlbum1(0);
+</script>
 </section>
 
 <!-- FOTOS -->
