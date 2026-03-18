@@ -7,6 +7,20 @@
 
 <style>
 
+    #player-principal {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#player-principal img {
+    margin-bottom: 10px;
+}
+
+#player-controles {
+    justify-content: center;
+}
+
     #player {
   position: fixed;
   bottom: 0;
@@ -728,21 +742,21 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 <section id="musicas" style="padding:40px; font-family: 'Arial', sans-serif; background:#fceedd; color:#000;">
     <h2 style="text-align:center; margin-bottom:30px; font-size:2em; color:#e60000;">🎵 Músicas Patati Patatá</h2>
 
-    <!-- PLAYER PRINCIPAL -->
-    <div id="player-principal" style="display:flex; align-items:center; background:#00aaff; padding:20px; border-radius:15px; margin-bottom:50px; box-shadow:0 4px 20px rgba(0,0,0,0.3);">
-        <img id="capa-player" src="img/capa-placeholder.jpg" alt="Capa do player" style="width:120px; height:120px; object-fit:cover; border-radius:10px; margin-right:20px;">
-        <div style="flex:1;">
-            <h3 id="nome-musica-atual" style="margin-bottom:15px; color:#fff;">Escolha uma música</h3>
-            <audio id="player-geral" controls style="width:100%; outline:none;">
-                Seu navegador não suporta o elemento de áudio.
-            </audio>
-            
-            <!-- Player Principal -->
-<div id="player">
-  <button id="prev">⏮️</button>
-  <button id="play">▶️</button>
-  <button id="next">⏭️</button>
-  <div id="current-track">Nenhuma música tocando</div>
+   <!-- PLAYER PRINCIPAL -->
+<div id="player-principal" style="display:flex; align-items:center; background:#00aaff; padding:20px; border-radius:15px; margin-bottom:50px; box-shadow:0 4px 20px rgba(0,0,0,0.3); flex-wrap: wrap;">
+    <img id="capa-player" src="img/capa-placeholder.jpg" alt="Capa do player" style="width:120px; height:120px; object-fit:cover; border-radius:10px; margin-right:20px;">
+    <div style="flex:1; min-width:200px;">
+        <h3 id="nome-musica-atual" style="margin-bottom:15px; color:#fff;">Escolha uma música</h3>
+
+        <!-- CONTROLES -->
+        <div id="player-controles" style="display:flex; align-items:center; gap:15px;">
+            <button id="prev" style="font-size:24px; cursor:pointer;">⏮️</button>
+            <button id="play" style="font-size:28px; cursor:pointer;">▶️</button>
+            <button id="next" style="font-size:24px; cursor:pointer;">⏭️</button>
+        </div>
+
+        <audio id="player-geral" style="width:100%; margin-top:10px;" preload="metadata"></audio>
+    </div>
 </div>
 
     <!-- ÁLBUNS -->
@@ -1073,6 +1087,27 @@ function showTab(tabId) {
 
     document.getElementById(tabId).classList.add("active");
 }
+
+    const btnPlay = document.getElementById('play');
+const btnPrev = document.getElementById('prev');
+const btnNext = document.getElementById('next');
+
+btnPlay.addEventListener('click', () => {
+    if(player.paused) {
+        player.play();
+        btnPlay.textContent = '⏸️';
+    } else {
+        player.pause();
+        btnPlay.textContent = '▶️';
+    }
+});
+
+btnPrev.addEventListener('click', tocarAnterior);
+btnNext.addEventListener('click', tocarProximo);
+
+// Atualiza botão play/pause automaticamente
+player.addEventListener('play', () => btnPlay.textContent = '⏸️');
+player.addEventListener('pause', () => btnPlay.textContent = '▶️');
 
 // =======================
 // 🚀 INICIAR TUDO
