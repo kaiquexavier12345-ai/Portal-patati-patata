@@ -711,83 +711,43 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
     <audio id="audio-spotify"></audio>
   </div>
 
-  <style>
-    #barra-progresso {
-      -webkit-appearance: none;
-      background:#fff;
-      height:4px;
-      border-radius:2px;
-    }
-    #barra-progresso::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      width:12px;
-      height:12px;
-      background:#1db954;
-      border-radius:50%;
-      cursor:pointer;
-    }
-    #barra-progresso::-moz-range-thumb {
-      width:12px;
-      height:12px;
-      background:#1db954;
-      border-radius:50%;
-      cursor:pointer;
-    }
-    .musica { padding:10px 15px; border-radius:8px; cursor:pointer; transition: background 0.2s, color 0.2s; }
-    .musica:hover { background:#ffcc00; color:#000; }
-    .musica.tocando { background:#e60000; color:#fff; }
-  </style>
-
   <!-- LISTA DE MÚSICAS -->
-  <div id="albuns-container" style="display:flex; flex-direction:column; gap:40px; margin-top:30px;">
+  <div id="albuns-container" style="margin-top:30px;">
+    <h3>📀 Os Grandes Sucessos</h3>
+    <ul>
+      <li class="musica" data-src="musicas/Se_Voce_Quer_Sorrir.mp3" data-capa="img/capa_grandes.jpg">Se Você Quer Sorrir</li>
+      <li class="musica" data-src="musicas/Nosso_Aviao.mp3" data-capa="img/capa_grandes.jpg">Nosso Avião</li>
+      <li class="musica" data-src="musicas/A_Danca_Do_Macaco.mp3" data-capa="img/capa_grandes.jpg">A Dança Do Macaco</li>
+      <li class="musica" data-src="musicas/Trava_Linguas.mp3" data-capa="img/capa_grandes.jpg">Trava Línguas</li>
+      <li class="musica" data-src="musicas/Hora_Da_Refeicao.mp3" data-capa="img/capa_grandes.jpg">Hora Da Refeição</li>
+      <li class="musica" data-src="musicas/Mundo_Encantado.mp3" data-capa="img/capa_grandes.jpg">Mundo Encantado</li>
+      <li class="musica" data-src="musicas/A_Minha_Velha.mp3" data-capa="img/capa_grandes.jpg">A Minha Velha</li>
+      <li class="musica" data-src="musicas/A_Lingua_Do_P.mp3" data-capa="img/capa_grandes.jpg">A Língua Do "P"</li>
+      <li class="musica" data-src="musicas/A_Grama_Foi_Crescendo.mp3" data-capa="img/capa_grandes.jpg">A Grama Foi Crescendo</li>
+      <li class="musica" data-src="musicas/Chuveiro_Chuveiro.mp3" data-capa="img/capa_grandes.jpg">Chuveiro, Chuveiro</li>
+      <li class="musica" data-src="musicas/Meu_Cachorrinho.mp3" data-capa="img/capa_grandes.jpg">Meu Cachorrinho</li>
+      <li class="musica" data-src="musicas/Chule.mp3" data-capa="img/capa_grandes.jpg">Chulé</li>
+      <li class="musica" data-src="musicas/As_Maos.mp3" data-capa="img/capa_grandes.jpg">As Mãos</li>
+      <li class="musica" data-src="musicas/O_Trem_Da_Fantasia.mp3" data-capa="img/capa_grandes.jpg">O Trem Da Fantasia</li>
+    </ul>
 
-    <!-- Álbum 1 -->
-    <div class="album" style="background:#00aaff; padding:20px; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.3);">
-      <div style="display:flex; align-items:center; gap:20px; margin-bottom:15px;">
-        <img src="img/capa_grandes.jpg" alt="Os Grandes Sucessos" style="width:100px; height:100px; object-fit:cover; border-radius:10px;">
-        <h3 style="font-size:1.4em; color:#fff;">📀 Os Grandes Sucessos</h3>
-      </div>
-      <ul style="list-style:none; padding-left:0;">
-        <li class="musica" data-src="musicas/Se_Voce_Quer_Sorrir.mp3" data-capa="img/capa_grandes.jpg">Se Você Quer Sorrir</li>
-        <li class="musica" data-src="musicas/Nosso_Aviao.mp3" data-capa="img/capa_grandes.jpg">Nosso Avião</li>
-        <li class="musica" data-src="musicas/A_Danca_Do_Macaco.mp3" data-capa="img/capa_grandes.jpg">A Dança Do Macaco</li>
-        <li class="musica" data-src="musicas/Trava_Linguas.mp3" data-capa="img/capa_grandes.jpg">Trava Línguas</li>
-        <li class="musica" data-src="musicas/Hora_Da_Refeicao.mp3" data-capa="img/capa_grandes.jpg">Hora Da Refeição</li>
-        <li class="musica" data-src="musicas/Mundo_Encantado.mp3" data-capa="img/capa_grandes.jpg">Mundo Encantado</li>
-        <li class="musica" data-src="musicas/A_Minha_Velha.mp3" data-capa="img/capa_grandes.jpg">A Minha Velha</li>
-        <li class="musica" data-src="musicas/A_Lingua_Do_P.mp3" data-capa="img/capa_grandes.jpg">A Língua Do "P"</li>
-        <li class="musica" data-src="musicas/A_Grama_Foi_Crescendo.mp3" data-capa="img/capa_grandes.jpg">A Grama Foi Crescendo</li>
-        <li class="musica" data-src="musicas/Chuveiro_Chuveiro.mp3" data-capa="img/capa_grandes.jpg">Chuveiro, Chuveiro</li>
-        <li class="musica" data-src="musicas/Meu_Cachorrinho.mp3" data-capa="img/capa_grandes.jpg">Meu Cachorrinho</li>
-        <li class="musica" data-src="musicas/Chule.mp3" data-capa="img/capa_grandes.jpg">Chulé</li>
-        <li class="musica" data-src="musicas/As_Maos.mp3" data-capa="img/capa_grandes.jpg">As Mãos</li>
-        <li class="musica" data-src="musicas/O_Trem_Da_Fantasia.mp3" data-capa="img/capa_grandes.jpg">O Trem Da Fantasia</li>
-      </ul>
-    </div>
-
-    <!-- Álbum 2 -->
-    <div class="album" style="background:#ff0000; padding:20px; border-radius:15px; box-shadow:0 4px 15px rgba(0,0,0,0.3);">
-      <div style="display:flex; align-items:center; gap:20px; margin-bottom:15px;">
-        <img src="img/capa_castelo.jpg" alt="Castelo da Fantasia" style="width:100px; height:100px; object-fit:cover; border-radius:10px;">
-        <h3 style="font-size:1.4em; color:#fff;">📀 Castelo da Fantasia</h3>
-      </div>
-      <ul style="list-style:none; padding-left:0;">
-        <li class="musica" data-src="musicas/Castelo_Da_Fantasia.mp3" data-capa="img/capa_castelo.jpg">Castelo Da Fantasia</li>
-        <li class="musica" data-src="musicas/A_Danca_Do_Soldadinho.mp3" data-capa="img/capa_castelo.jpg">A Dança Do Soldadinho</li>
-        <li class="musica" data-src="musicas/Animais_De_Estimacao.mp3" data-capa="img/capa_castelo.jpg">Animais De Estimação</li>
-        <li class="musica" data-src="musicas/Pula_Mais_Do_Que_Pipoca.mp3" data-capa="img/capa_castelo.jpg">Pula Mais Do Que Pipoca</li>
-        <li class="musica" data-src="musicas/Cancao_De_Ninar.mp3" data-capa="img/capa_castelo.jpg">Canção De Ninar</li>
-        <li class="musica" data-src="musicas/A_Formiguinha.mp3" data-capa="img/capa_castelo.jpg">A Formiguinha</li>
-        <li class="musica" data-src="musicas/Parabens.mp3" data-capa="img/capa_castelo.jpg">Parabéns</li>
-        <li class="musica" data-src="musicas/Magia_No_Ar.mp3" data-capa="img/capa_castelo.jpg">Magia No Ar</li>
-        <li class="musica" data-src="musicas/As_Quatro_Estacoes_Do_Ano.mp3" data-capa="img/capa_castelo.jpg">As Quatro Estações Do Ano</li>
-        <li class="musica" data-src="musicas/Um_Mundo_Mais_Bonito.mp3" data-capa="img/capa_castelo.jpg">Um Mundo Mais Bonito</li>
-        <li class="musica" data-src="musicas/Piquenique.mp3" data-capa="img/capa_castelo.jpg">Piquenique</li>
-        <li class="musica" data-src="musicas/O_Que_E_O_Que_E.mp3" data-capa="img/capa_castelo.jpg">O Que É, O Que É?</li>
-        <li class="musica" data-src="musicas/Tabuada_Do_Nove.mp3" data-capa="img/capa_castelo.jpg">Tabuada Do Nove</li>
-        <li class="musica" data-src="musicas/Amigos_Para_Sempre.mp3" data-capa="img/capa_castelo.jpg">Amigos Para Sempre</li>
-      </ul>
-    </div>
+    <h3>📀 Castelo da Fantasia</h3>
+    <ul>
+      <li class="musica" data-src="musicas/Castelo_Da_Fantasia.mp3" data-capa="img/capa_castelo.jpg">Castelo Da Fantasia</li>
+      <li class="musica" data-src="musicas/A_Danca_Do_Soldadinho.mp3" data-capa="img/capa_castelo.jpg">A Dança Do Soldadinho</li>
+      <li class="musica" data-src="musicas/Animais_De_Estimacao.mp3" data-capa="img/capa_castelo.jpg">Animais De Estimação</li>
+      <li class="musica" data-src="musicas/Pula_Mais_Do_Que_Pipoca.mp3" data-capa="img/capa_castelo.jpg">Pula Mais Do Que Pipoca</li>
+      <li class="musica" data-src="musicas/Cancao_De_Ninar.mp3" data-capa="img/capa_castelo.jpg">Canção De Ninar</li>
+      <li class="musica" data-src="musicas/A_Formiguinha.mp3" data-capa="img/capa_castelo.jpg">A Formiguinha</li>
+      <li class="musica" data-src="musicas/Parabens.mp3" data-capa="img/capa_castelo.jpg">Parabéns</li>
+      <li class="musica" data-src="musicas/Magia_No_Ar.mp3" data-capa="img/capa_castelo.jpg">Magia No Ar</li>
+      <li class="musica" data-src="musicas/As_Quatro_Estacoes_Do_Ano.mp3" data-capa="img/capa_castelo.jpg">As Quatro Estações Do Ano</li>
+      <li class="musica" data-src="musicas/Um_Mundo_Mais_Bonito.mp3" data-capa="img/capa_castelo.jpg">Um Mundo Mais Bonito</li>
+      <li class="musica" data-src="musicas/Piquenique.mp3" data-capa="img/capa_castelo.jpg">Piquenique</li>
+      <li class="musica" data-src="musicas/O_Que_E_O_Que_E.mp3" data-capa="img/capa_castelo.jpg">O Que É, O Que É?</li>
+      <li class="musica" data-src="musicas/Tabuada_Do_Nove.mp3" data-capa="img/capa_castelo.jpg">Tabuada Do Nove</li>
+      <li class="musica" data-src="musicas/Amigos_Para_Sempre.mp3" data-capa="img/capa_castelo.jpg">Amigos Para Sempre</li>
+    </ul>
   </div>
 </section>
 
@@ -805,12 +765,15 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
   let musicas = [];
   let indexAtual = -1;
+  let tocouUmaVez = false;
 
   function tocarMusica(src,capaSrc,nomeMusica,e){
     if(e) e.preventDefault();
-    audio.src = src; audio.load();
-    audio.play().catch(()=>{alert("Toque novamente para iniciar no celular")});
-    capa.src = capaSrc; nome.textContent = nomeMusica;
+    audio.src = src;
+    audio.load();
+    audio.play().catch(()=>{});
+    capa.src = capaSrc;
+    nome.textContent = nomeMusica;
 
     const existeIndex = musicas.findIndex(m=>m.src===src);
     if(existeIndex===-1){ musicas.push({src,capa:capaSrc,nome:nomeMusica}); indexAtual=musicas.length-1;}
@@ -853,6 +816,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   });
 });
 </script>
+
     
 </section>
 
