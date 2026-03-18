@@ -7,6 +7,74 @@
 
 <style>
 
+    /* FUNDO DA ABA */
+#musicas {
+    background: linear-gradient(135deg, #ffffff, #1e88e5, #43a047, #e53935);
+    padding: 30px 20px;
+    min-height: 100vh;
+}
+
+/* PLAYER FIXO */
+.player-geral {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: auto 0;
+    color: white;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+}
+
+.player-geral .capa-player {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 4px solid white;
+}
+
+.player-geral .info-player h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+/* PLAYLIST ESTILO SPOTIFY */
+.playlist-spotify {
+    max-width: 700px;
+    margin: 30px auto;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(10px);
+    overflow-y: auto;
+    max-height: 500px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.playlist-spotify ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.playlist-spotify li {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+    color: white;
+}
+
+.playlist-spotify li:hover {
+    background: rgba(255,255,255,0.3);
+    transform: scale(1.02);
+}
+
     #home .card {
     background: rgba(255,255,255,0.9);
     backdrop-filter: blur(5px);
@@ -672,83 +740,39 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 
 </section>
 
-<!-- MÚSICAS -->
 <section id="musicas">
 
-    <h2>🎵 Os Grandes Sucessos </h2>
+    <h2>🎵 Portal Patati Patatá - Músicas</h2>
 
-    <div class="playlist">
-
-        <div class="track">
-            <p>Se Você Quer Sorrir!</p>
-            <audio controls src="musicas/se-voce-quer-sorrir.mp3"></audio>
+    <!-- PLAYER FIXO -->
+    <div class="player-geral">
+        <img src="img/capa-album.jpg" alt="Capa do álbum" class="capa-player">
+        <div class="info-player">
+            <h3 id="nome-musica-atual">Se Você Quer Sorrir!</h3>
+            <audio id="player-principal" controls>
+                <source src="musicas/se-voce-quer-sorrir.mp3" type="audio/mpeg">
+            </audio>
         </div>
+    </div>
 
-        <div class="track">
-            <p>Nosso Avião</p>
-            <audio controls src="musicas/nosso-aviao.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>A Dança do Macaco</p>
-            <audio controls src="musicas/danca-do-macaco.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>Trava Língua</p>
-            <audio controls src="musicas/trava-lingua.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>Hora da Refeição</p>
-            <audio controls src="musicas/hora-da-refeicao.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>Mundo Encantado</p>
-            <audio controls src="musicas/mundo-encantado.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>A Minha Velha</p>
-            <audio controls src="musicas/a-minha-velha.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>A Língua do P</p>
-            <audio controls src="musicas/lingua-do-p.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>A Grama Foi Crescendo</p>
-            <audio controls src="musicas/a-grama-foi-crescendo.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>Chuveiro, Chuveiro</p>
-            <audio controls src="musicas/chuveiro.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>Meu Cachorrinho</p>
-            <audio controls src="musicas/meu-cachorrinho.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>Chulé</p>
-            <audio controls src="musicas/chule.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>As Mãos</p>
-            <audio controls src="musicas/as-maos.mp3"></audio>
-        </div>
-
-        <div class="track">
-            <p>Trem da Fantasia</p>
-            <audio controls src="musicas/trem-da-fantasia.mp3"></audio>
-        </div>
-
+    <!-- LISTA DE MÚSICAS (estilo Spotify) -->
+    <div class="playlist-spotify">
+        <ul>
+            <li onclick="tocarMusica('musicas/se-voce-quer-sorrir.mp3', 'Se Você Quer Sorrir!')">Se Você Quer Sorrir!</li>
+            <li onclick="tocarMusica('musicas/nosso-aviao.mp3', 'Nosso Avião')">Nosso Avião</li>
+            <li onclick="tocarMusica('musicas/danca-do-macaco.mp3', 'A Dança do Macaco')">A Dança do Macaco</li>
+            <li onclick="tocarMusica('musicas/trava-lingua.mp3', 'Trava Língua')">Trava Língua</li>
+            <li onclick="tocarMusica('musicas/hora-da-refeicao.mp3', 'Hora da Refeição')">Hora da Refeição</li>
+            <li onclick="tocarMusica('musicas/mundo-encantado.mp3', 'Mundo Encantado')">Mundo Encantado</li>
+            <li onclick="tocarMusica('musicas/a-minha-velha.mp3', 'A Minha Velha')">A Minha Velha</li>
+            <li onclick="tocarMusica('musicas/lingua-do-p.mp3', 'A Língua do P')">A Língua do P</li>
+            <li onclick="tocarMusica('musicas/a-grama-foi-crescendo.mp3', 'A Grama Foi Crescendo')">A Grama Foi Crescendo</li>
+            <li onclick="tocarMusica('musicas/chuveiro.mp3', 'Chuveiro, Chuveiro')">Chuveiro, Chuveiro</li>
+            <li onclick="tocarMusica('musicas/meu-cachorrinho.mp3', 'Meu Cachorrinho')">Meu Cachorrinho</li>
+            <li onclick="tocarMusica('musicas/chule.mp3', 'Chulé')">Chulé</li>
+            <li onclick="tocarMusica('musicas/as-maos.mp3', 'As Mãos')">As Mãos</li>
+            <li onclick="tocarMusica('musicas/trem-da-fantasia.mp3', 'Trem da Fantasia')">Trem da Fantasia</li>
+        </ul>
     </div>
 
 </section>
@@ -918,6 +942,7 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 
 </footer>
 
+
     <script>
 function abrirImagem(src, index) {
     const lightbox = document.getElementById("lightbox");
@@ -942,6 +967,44 @@ function fecharImagem() {
 
 <script>
 
+    // PLAYLIST
+const playlistMusicas = [
+    {src: "musicas/se-voce-quer-sorrir.mp3", nome: "Se Você Quer Sorrir!"},
+    {src: "musicas/nosso-aviao.mp3", nome: "Nosso Avião"},
+    {src: "musicas/danca-do-macaco.mp3", nome: "A Dança do Macaco"},
+    {src: "musicas/trava-lingua.mp3", nome: "Trava Língua"},
+    {src: "musicas/hora-da-refeicao.mp3", nome: "Hora da Refeição"},
+    {src: "musicas/mundo-encantado.mp3", nome: "Mundo Encantado"},
+    {src: "musicas/a-minha-velha.mp3", nome: "A Minha Velha"},
+    {src: "musicas/lingua-do-p.mp3", nome: "A Língua do P"},
+    {src: "musicas/a-grama-foi-crescendo.mp3", nome: "A Grama Foi Crescendo"},
+    {src: "musicas/chuveiro.mp3", nome: "Chuveiro, Chuveiro"},
+    {src: "musicas/meu-cachorrinho.mp3", nome: "Meu Cachorrinho"},
+    {src: "musicas/chule.mp3", nome: "Chulé"},
+    {src: "musicas/as-maos.mp3", nome: "As Mãos"},
+    {src: "musicas/trem-da-fantasia.mp3", nome: "Trem da Fantasia"}
+];
+
+let indexAtual = 0;
+const playerGeral = document.getElementById("player-principal");
+const nomeMusicaAtual = document.getElementById("nome-musica-atual");
+
+// Função para tocar música clicando
+function tocarMusica(src, nome) {
+    playerGeral.src = src;
+    nomeMusicaAtual.textContent = nome;
+    playerGeral.play();
+    indexAtual = playlistMusicas.findIndex(m => m.src === src);
+}
+
+// Próxima música automática
+playerGeral.addEventListener("ended", () => {
+    indexAtual = (indexAtual + 1) % playlistMusicas.length;
+    playerGeral.src = playlistMusicas[indexAtual].src;
+    nomeMusicaAtual.textContent = playlistMusicas[indexAtual].nome;
+    playerGeral.play();
+});
+    
 // =======================
 // 🔀 TROCA DE ABAS
 // =======================
