@@ -6,8 +6,7 @@
 <title>🎪 Portal Patati Patatá 🎪 - Fã Site</title>
 
 <style> 
-
-    body {
+body {
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #00aaff, #ff0000, #00ff00, #ffff00);
     margin: 0;
@@ -15,16 +14,16 @@
     color: #fff;
 }
 
-/* PLAYER PRINCIPAL */
+/* PLAYER */
 #player-principal {
     display: flex;
     align-items: center;
-    background: #222;
+    background: #111;
     padding: 15px;
     border-radius: 12px;
     margin: 20px auto;
     max-width: 700px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.5);
 }
 
 #player-principal img {
@@ -50,8 +49,9 @@
 }
 
 #nome-musica-atual {
-    font-size: 1.2em;
-    margin-bottom: 8px;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #ffff00;
 }
 
 #player-controles {
@@ -61,17 +61,25 @@
 }
 
 #player-controles button {
-    background: none;
+    background: #ff00ff;
     border: none;
     color: #fff;
     font-size: 1.5em;
+    padding: 8px 12px;
+    border-radius: 8px;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+#player-controles button:hover {
+    background: #00ffcc;
 }
 
 #progresso-container {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-top: 5px;
 }
 
 #progresso {
@@ -79,7 +87,7 @@
     cursor: pointer;
 }
 
-/* ESTILO DAS MÚSICAS - tipo Spotify */
+/* MÚSICAS */
 .musica {
     display: flex;
     justify-content: space-between;
@@ -89,7 +97,7 @@
     background: #333;
     color: #fff;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: 0.2s;
 }
 
 .musica:hover {
@@ -109,137 +117,14 @@
     padding: 15px;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    background: #222;
+    background: #111;
 }
 
 .album h3 {
     display: flex;
     align-items: center;
     gap: 15px;
-}
-
-.album img {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-.album ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0 0;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #00aaff, #ff0000, #00ff00, #ffff00);
-    margin: 0;
-    padding: 0;
-    color: #fff;
-}
-
-/* PLAYER PRINCIPAL */
-#player-principal {
-    display: flex;
-    align-items: center;
-    background: #222;
-    padding: 15px;
-    border-radius: 12px;
-    margin: 20px auto;
-    max-width: 700px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-
-#player-principal img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 20px;
-    transition: transform 0.5s linear;
-}
-
-.rotating {
-    animation: girar 8s linear infinite;
-}
-
-@keyframes girar {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-#info-musica {
-    flex: 1;
-}
-
-#nome-musica-atual {
-    font-size: 1.2em;
-    margin-bottom: 8px;
-}
-
-#player-controles {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#player-controles button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
-#progresso-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#progresso {
-    flex: 1;
-    cursor: pointer;
-}
-
-/* ESTILO DAS MÚSICAS - tipo Spotify */
-.musica {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 15px;
-    margin: 5px 0;
-    border-radius: 8px;
-    background: #333;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.musica:hover {
-    background: #ffcc00; /* amarelo Patati Patatá */
-    color: #000;
-}
-
-.musica.tocando {
-    background: #00ff00; /* verde Patati Patatá */
-    font-weight: bold;
-}
-
-/* ÁLBUNS */
-.album {
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    background: #222;
-}
-
-.album h3 {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+    color: #ff0000;
 }
 
 .album img {
@@ -937,12 +822,12 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 
 </section>
 
-id="musicas">
-    <h2 style="text-align:center; color:#ff0000; margin-top:20px;">🎵 Músicas Patati Patatá</h2>
+<section id="musicas">
+    <h2 style="text-align:center; color:#ffcc00; margin-top:20px;">🎵 Músicas Patati Patatá</h2>
 
-    <!-- PLAYER PRINCIPAL -->
+    <!-- PLAYER -->
     <div id="player-principal">
-        <img id="capa-player" src="img/capa-placeholder.jpg" alt="Capa do player">
+        <img id="capa-player" src="img/capa-placeholder.jpg" alt="Capa">
         <div id="info-musica">
             <div id="nome-musica-atual">Escolha uma música</div>
             <div id="progresso-container">
@@ -958,7 +843,7 @@ id="musicas">
         </div>
     </div>
 
-    <!-- ÁLBUM 1 -->
+    <!-- ÁLBUM: Os Grandes Sucessos -->
     <div class="album">
         <h3><img src="img/capa_grandes.jpg" alt=""> Os Grandes Sucessos</h3>
         <ul>
@@ -979,7 +864,7 @@ id="musicas">
         </ul>
     </div>
 
-    <!-- ÁLBUM 2 -->
+    <!-- ÁLBUM: Castelo da Fantasia -->
     <div class="album">
         <h3><img src="img/capa_castelo.jpg" alt=""> Castelo da Fantasia</h3>
         <ul>
@@ -999,7 +884,6 @@ id="musicas">
             <li class="musica" data-src="musicas/Amigos_Para_Sempre.mp3" data-capa="img/capa_castelo.jpg">Amigos Para Sempre</li>
         </ul>
     </div>
-
 </section>
 
 <audio id="player-geral"></audio>
@@ -1028,7 +912,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function tocarAgora(src, capa, nome) {
         player.src = src;
         player.load();
-        player.play().catch(() => { console.log('Toque necessário no celular'); });
+        player.play().catch(() => {
+            alert("Toque novamente na música para iniciar no celular!");
+        });
 
         nomeMusica.textContent = nome;
         capaPlayer.src = capa;
@@ -1085,7 +971,6 @@ document.addEventListener('DOMContentLoaded', () => {
     player.addEventListener('ended', () => btnNext.click());
 });
 </script>
-
     
 </section>
 
