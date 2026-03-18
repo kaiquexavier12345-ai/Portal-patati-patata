@@ -1059,6 +1059,105 @@ function fecharImagem() {
 
 <script>
 
+    document.addEventListener("DOMContentLoaded", () => {
+
+  // ===== PLAYER =====
+  const player = document.getElementById('player-geral');
+  const nomeMusica = document.getElementById('nome-musica-atual');
+  const capaPlayer = document.getElementById('capa-player');
+  const btnPlay = document.getElementById('play');
+  const btnPrev = document.getElementById('prev');
+  const btnNext = document.getElementById('next');
+
+  let musicas = [];
+  let indexAtual = -1;
+  const itensMusica = document.querySelectorAll('.musica');
+
+  function limparTocando() {
+      itensMusica.forEach(m => m.classList.remove('tocando'));
+  }
+
+  function tocarAgora(src, capa, nome, evento) {
+      if(evento) evento.preventDefault();
+
+      player.src = src;
+      player.load();
+
+      player.play().catch(() => {
+          // No celular, precisa do segundo toque
+          alert("Toque na música novamente para iniciar no celular.");
+      });
+
+      nomeMusica.textContent = nome;
+      capaPlayer.src = capa;
+
+      limparTocando();
+      let item = Array.from(itensMusica).find(i => i.textContent === nome);
+      if(item) item.classList.add('tocando');
+
+      const existeIndex = musicas.findIndex(m => m.src === src);
+      if (existeIndex === -1) {
+          musicas.push({src, capa, nome});
+          indexAtual = musicas.length - 1;
+      } else {
+          indexAtual = existeIndex;
+      }
+  }
+
+  function tocarProximo() {
+      if (musicas.length === 0) return;
+      indexAtual++;
+      if (indexAtual >= musicas.length) indexAtual = 0;
+      const m = musicas[indexAtual];
+      tocarAgora(m.src, m.capa, m.nome);
+  }
+
+  function tocarAnterior() {
+      if (musicas.length === 0) return;
+      indexAtual--;
+      if (indexAtual < 0) indexAtual = musicas.length - 1;
+      const m = musicas[indexAtual];
+      tocarAgora(m.src, m.capa, m.nome);
+  }
+
+  // Botões
+  btnPlay.addEventListener('click', () => {
+      if(player.paused) player.play();
+      else player.pause();
+  });
+
+  btnNext.addEventListener('click', tocarProximo);
+  btnPrev.addEventListener('click', tocarAnterior);
+
+  player.addEventListener('play', () => btnPlay.textContent = '⏸️');
+  player.addEventListener('pause', () => btnPlay.textContent = '▶️');
+
+  // Clique em músicas da lista
+  itensMusica.forEach(item => {
+      item.addEventListener('click', (e) => {
+          const src = item.getAttribute('data-src');
+          const capa = item.getAttribute('data-capa');
+          const nome = item.textContent;
+          tocarAgora(src, capa, nome, e);
+      });
+  });
+
+  // ===== ABAS =====
+  const abas = document.querySelectorAll('.aba-btn');
+  const conteudos = document.querySelectorAll('.conteudo-aba');
+
+  abas.forEach((aba, index) => {
+      aba.addEventListener('click', () => {
+          abas.forEach(a => a.classList.remove('ativa'));
+          aba.classList.add('ativa');
+
+          conteudos.forEach(c => c.style.display = 'none');
+          conteudos[index].style.display = 'block';
+      });
+  });
+
+});
+
     const mainAudio = document.getElementById('main-audio');
 
 document.querySelectorAll('.music-track').forEach(track => {
