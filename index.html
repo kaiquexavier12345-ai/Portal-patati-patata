@@ -6,6 +6,124 @@
 <title>🎪 Portal Patati Patatá 🎪 - Fã Site</title>
 
 <style>
+
+    body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #00aaff, #ff0000, #00ff00, #ffffff);
+    margin: 0;
+    padding: 0;
+}
+
+/* PLAYER PRINCIPAL - estilo Spotify */
+#player-principal {
+    display: flex;
+    align-items: center;
+    background: #121212;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 700px;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+#player-principal img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    transition: transform 0.5s linear;
+}
+
+.rotating {
+    animation: girar 8s linear infinite;
+}
+
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#info-musica {
+    flex: 1;
+}
+
+#nome-musica-atual {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#player-controles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#player-controles button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+#progresso {
+    width: 100%;
+}
+
+/* Estilo das músicas - estilo Spotify */
+.musica {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 8px;
+    background: #121212;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.musica:hover {
+    background: #1db954;
+}
+
+.musica.tocando {
+    background: #1ed760;
+    font-weight: bold;
+}
+
+/* Albuns */
+.album {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background: #222;
+    color: #fff;
+}
+
+.album h3 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.album img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.album ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
     
 body {
     margin: 0;
@@ -750,126 +868,6 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 </section>
 
 <audio id="player-geral"></audio>
-
-    <style>
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #00aaff, #ff0000, #00ff00, #ffffff);
-    margin: 0;
-    padding: 0;
-}
-
-/* PLAYER PRINCIPAL - estilo Spotify */
-#player-principal {
-    display: flex;
-    align-items: center;
-    background: #121212;
-    padding: 15px;
-    border-radius: 12px;
-    margin: 20px auto;
-    max-width: 700px;
-    color: #fff;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-
-#player-principal img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 20px;
-    transition: transform 0.5s linear;
-}
-
-.rotating {
-    animation: girar 8s linear infinite;
-}
-
-@keyframes girar {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-#info-musica {
-    flex: 1;
-}
-
-#nome-musica-atual {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-#player-controles {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#player-controles button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
-#progresso {
-    width: 100%;
-}
-
-/* Estilo das músicas - estilo Spotify */
-.musica {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 15px;
-    margin: 5px 0;
-    border-radius: 8px;
-    background: #121212;
-    color: #fff;
-    cursor: pointer;
-    transition: background 0.2s;
-}
-
-.musica:hover {
-    background: #1db954;
-}
-
-.musica.tocando {
-    background: #1ed760;
-    font-weight: bold;
-}
-
-/* Albuns */
-.album {
-    max-width: 700px;
-    margin: 20px auto;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    background: #222;
-    color: #fff;
-}
-
-.album h3 {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.album img {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    object-fit: cover;
-}
-
-.album ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0 0 0;
-}
-</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
