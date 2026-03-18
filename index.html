@@ -1035,31 +1035,21 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 
 </footer>
 
-    <script>
-function abrirImagem(src, index) {
-    const lightbox = document.getElementById("lightbox");
-    const img = document.getElementById("img-ampliada");
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
 
-    img.src = src;
+  // ===== LIGHTBOX =====
+  window.abrirImagem = function(src, index) {
+      const lightbox = document.getElementById("lightbox");
+      const img = document.getElementById("img-ampliada");
+      img.src = src;
+      img.classList.toggle("azul", index % 2 !== 0);
+      lightbox.style.display = "block";
+  }
 
-    if (index % 2 === 0) {
-        img.classList.remove("azul");
-    } else {
-        img.classList.add("azul");
-    }
-
-    lightbox.style.display = "block";
-}
-
-function fecharImagem() {
-    document.getElementById("lightbox").style.display = "none";
-}
-</script>
-
-
-<script>
-
-    document.addEventListener("DOMContentLoaded", () => {
+  window.fecharImagem = function() {
+      document.getElementById("lightbox").style.display = "none";
+  }
 
   // ===== PLAYER =====
   const player = document.getElementById('player-geral');
@@ -1084,7 +1074,6 @@ function fecharImagem() {
       player.load();
 
       player.play().catch(() => {
-          // No celular, precisa do segundo toque
           alert("Toque na música novamente para iniciar no celular.");
       });
 
@@ -1092,7 +1081,7 @@ function fecharImagem() {
       capaPlayer.src = capa;
 
       limparTocando();
-      let item = Array.from(itensMusica).find(i => i.textContent === nome);
+      const item = Array.from(itensMusica).find(i => i.textContent === nome);
       if(item) item.classList.add('tocando');
 
       const existeIndex = musicas.findIndex(m => m.src === src);
@@ -1105,22 +1094,20 @@ function fecharImagem() {
   }
 
   function tocarProximo() {
-      if (musicas.length === 0) return;
-      indexAtual++;
-      if (indexAtual >= musicas.length) indexAtual = 0;
+      if (!musicas.length) return;
+      indexAtual = (indexAtual + 1) % musicas.length;
       const m = musicas[indexAtual];
       tocarAgora(m.src, m.capa, m.nome);
   }
 
   function tocarAnterior() {
-      if (musicas.length === 0) return;
-      indexAtual--;
-      if (indexAtual < 0) indexAtual = musicas.length - 1;
+      if (!musicas.length) return;
+      indexAtual = (indexAtual - 1 + musicas.length) % musicas.length;
       const m = musicas[indexAtual];
       tocarAgora(m.src, m.capa, m.nome);
   }
 
-  // Botões
+  // ===== BOTÕES PLAYER =====
   btnPlay.addEventListener('click', () => {
       if(player.paused) player.play();
       else player.pause();
@@ -1132,11 +1119,11 @@ function fecharImagem() {
   player.addEventListener('play', () => btnPlay.textContent = '⏸️');
   player.addEventListener('pause', () => btnPlay.textContent = '▶️');
 
-  // Clique em músicas da lista
+  // ===== CLIQUE NAS MÚSICAS =====
   itensMusica.forEach(item => {
       item.addEventListener('click', (e) => {
-          const src = item.getAttribute('data-src');
-          const capa = item.getAttribute('data-capa');
+          const src = item.dataset.src;
+          const capa = item.dataset.capa;
           const nome = item.textContent;
           tocarAgora(src, capa, nome, e);
       });
@@ -1156,217 +1143,66 @@ function fecharImagem() {
       });
   });
 
-});
+  // ===== CARROSSEL =====
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
 
-    const mainAudio = document.getElementById('main-audio');
+  function updateCarousel() {
+      if (!slides.length) return;
+      slides.forEach(slide => slide.classList.remove("active"));
+      slides[currentSlide].classList.add("active");
+  }
 
-document.querySelectorAll('.music-track').forEach(track => {
-    track.addEventListener('click', () => {
-        mainAudio.src = track.dataset.src; // muda a música
-        mainAudio.play().catch(() => {
-            alert("Toque na tela para iniciar a música"); 
-        });
-    });
-});
+  function nextSlide() {
+      if (!slides.length) return;
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateCarousel();
+  }
 
-// =======================
-// 🔀 TROCA DE ABAS
-// =======================
-function showTab(tabId) {
-    document.querySelectorAll("section").forEach(sec => {
-        sec.classList.remove("active");
-    });
+  setInterval(nextSlide, 4000);
+  updateCarousel();
 
-    document.getElementById(tabId).classList.add("active");
-}
+  // ===== MATÉRIAS =====
+  const materias = [
+      { titulo: "Nova turnê!", texto: "Patati Patatá anunciam shows pelo Brasil." },
+      { titulo: "Curiosidade", texto: "Eles começaram no circo antes da TV." },
+      { titulo: "Sucesso infantil", texto: "As músicas fazem sucesso há anos." }
+  ];
 
-    const btnPlay = document.getElementById('play');
-const btnPrev = document.getElementById('prev');
-const btnNext = document.getElementById('next');
+  function carregarMateriasHome() {
+      const container = document.querySelector(".materias-home");
+      if (!container) return;
 
-btnPlay.addEventListener('click', () => {
-    if(player.paused) {
-        player.play();
-        btnPlay.textContent = '⏸️';
-    } else {
-        player.pause();
-        btnPlay.textContent = '▶️';
-    }
-});
+      container.innerHTML = "";
+      materias.slice(0, 3).forEach(m => {
+          container.innerHTML += `
+              <div class="card">
+                  <h4>${m.titulo}</h4>
+                  <p>${m.texto}</p>
+              </div>
+          `;
+      });
+  }
 
-btnPrev.addEventListener('click', tocarAnterior);
-btnNext.addEventListener('click', tocarProximo);
+  function carregarMateriasPagina() {
+      const container = document.querySelector("#materias");
+      if (!container) return;
 
-// Atualiza botão play/pause automaticamente
-player.addEventListener('play', () => btnPlay.textContent = '⏸️');
-player.addEventListener('pause', () => btnPlay.textContent = '▶️');
+      container.innerHTML = "<h2>📰 Matérias</h2>";
+      materias.forEach(m => {
+          container.innerHTML += `
+              <div class="card">
+                  <h3>${m.titulo}</h3>
+                  <p>${m.texto}</p>
+              </div>
+          `;
+      });
+  }
 
-    const player = document.getElementById('player-geral');
-const nomeMusica = document.getElementById('nome-musica-atual');
-const capaPlayer = document.getElementById('capa-player');
-const btnPlay = document.getElementById('play');
-const btnPrev = document.getElementById('prev');
-const btnNext = document.getElementById('next');
-
-let musicas = [];
-let indexAtual = -1;
-let itensMusica = document.querySelectorAll('.musica');
-
-function limparTocando() {
-    itensMusica.forEach(m => m.classList.remove('tocando'));
-}
-
-function tocarAgora(src, capa, nome, evento) {
-    // Necessário para funcionar no celular: tocar apenas se o evento for um click
-    if(evento) evento.preventDefault();
-
-    player.src = src;
-    player.load();
-    player.play().catch(() => {
-        // Se bloquear, apenas mostra que precisa de interação
-        alert("Toque na música novamente para iniciar no celular.");
-    });
-
-    nomeMusica.textContent = nome;
-    capaPlayer.src = capa;
-
-    limparTocando();
-    let item = Array.from(itensMusica).find(i => i.textContent === nome);
-    if(item) item.classList.add('tocando');
-
-    const existeIndex = musicas.findIndex(m => m.src === src);
-    if (existeIndex === -1) {
-        musicas.push({src, capa, nome});
-        indexAtual = musicas.length - 1;
-    } else {
-        indexAtual = existeIndex;
-    }
-}
-
-function tocarProximo() {
-    if (musicas.length === 0) return;
-    indexAtual++;
-    if (indexAtual >= musicas.length) indexAtual = 0;
-    const m = musicas[indexAtual];
-    tocarAgora(m.src, m.capa, m.nome);
-}
-
-function tocarAnterior() {
-    if (musicas.length === 0) return;
-    indexAtual--;
-    if (indexAtual < 0) indexAtual = musicas.length - 1;
-    const m = musicas[indexAtual];
-    tocarAgora(m.src, m.capa, m.nome);
-}
-
-// Botões
-btnPlay.addEventListener('click', () => {
-    if(player.paused) player.play();
-    else player.pause();
-});
-btnNext.addEventListener('click', tocarProximo);
-btnPrev.addEventListener('click', tocarAnterior);
-
-player.addEventListener('play', () => btnPlay.textContent = '⏸️');
-player.addEventListener('pause', () => btnPlay.textContent = '▶️');
-
-// Para cada música da lista, adiciona evento de clique
-itensMusica.forEach(item => {
-    item.addEventListener('click', (e) => {
-        const src = item.getAttribute('data-src');
-        const capa = item.getAttribute('data-capa');
-        const nome = item.textContent;
-        tocarAgora(src, capa, nome, e);
-    });
-});
-
-    
-// =======================
-// 🚀 INICIAR TUDO
-// =======================
-
-    window.onload = () => {
-  const abas = document.querySelectorAll('.aba-btn');
-  const conteudos = document.querySelectorAll('.conteudo-aba');
-
-  abas.forEach((aba, index) => {
-    aba.addEventListener('click', () => {
-      abas.forEach(a => a.classList.remove('ativa'));
-      aba.classList.add('ativa');
-
-      conteudos.forEach(c => c.style.display = 'none');
-      conteudos[index].style.display = 'block';
-    });
-  });
-};
-    
-document.addEventListener("DOMContentLoaded", function() {
-
-    // 🎠 CARROSSEL
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".slide");
-
-    function updateCarousel() {
-        if (!slides.length) return;
-        slides.forEach(slide => slide.classList.remove("active"));
-        slides[currentSlide].classList.add("active");
-    }
-
-  
-
-    function nextSlide() {
-        if (!slides.length) return;
-        currentSlide = (currentSlide + 1) % slides.length;
-        updateCarousel();
-    }
-
-    setInterval(nextSlide, 4000);
-    updateCarousel();
-
-    // 📰 MATÉRIAS
-    const materias = [
-        { titulo: "Nova turnê!", texto: "Patati Patatá anunciam shows pelo Brasil." },
-        { titulo: "Curiosidade", texto: "Eles começaram no circo antes da TV." },
-        { titulo: "Sucesso infantil", texto: "As músicas fazem sucesso há anos." }
-    ];
-
-    function carregarMateriasHome() {
-        const container = document.querySelector(".materias-home");
-        if (!container) return;
-
-        container.innerHTML = "";
-
-        materias.slice(0, 3).forEach(m => {
-            container.innerHTML += `
-                <div class="card">
-                    <h4>${m.titulo}</h4>
-                    <p>${m.texto}</p>
-                </div>
-            `;
-        });
-    }
-
-    function carregarMateriasPagina() {
-        const container = document.querySelector("#materias");
-        if (!container) return;
-
-        container.innerHTML = "<h2>📰 Matérias</h2>";
-
-        materias.forEach(m => {
-            container.innerHTML += `
-                <div class="card">
-                    <h3>${m.titulo}</h3>
-                    <p>${m.texto}</p>
-                </div>
-            `;
-        });
-    }
-
-    carregarMateriasHome();
-    carregarMateriasPagina();
+  carregarMateriasHome();
+  carregarMateriasPagina();
 
 });
-
 </script>
 
     <div id="lightbox" class="lightbox">
