@@ -759,14 +759,75 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
   <div id="albuns-container"></div>
 </section>
 
+<style>
+  #musicas {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  #musicas h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .player-geral, .album-player-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+  }
+
+  .capa-player {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+
+  .info-player {
+    flex: 1;
+  }
+
+  .playlist-spotify, .playlist-album {
+    margin-top: 10px;
+  }
+
+  .playlist-spotify li, .playlist-album .track {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    transition: background 0.2s;
+    list-style: none;
+  }
+
+  .playlist-spotify li:hover, .playlist-album .track:hover {
+    background-color: #f0f0f0;
+  }
+
+  .album-player-container {
+    flex-direction: column;
+    border-top: 2px solid #ccc;
+    padding-top: 15px;
+  }
+
+  .album-player {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+</style>
+
 <script>
 // =======================
 // 🎵 DADOS DOS ÁLBUNS
 // =======================
 const albuns = [
   {
-    nome: "Clássicos Patati Patatá",
-    capa: "img/capa-album1.jpg",
+    nome: "Os grandes Sucessos",
+    capa: "img/capa-album.jpg",
     musicas: [
       {nome: "Se Você Quer Sorrir!", src: "musicas/se-voce-quer-sorrir.mp3"},
       {nome: "Nosso Avião", src: "musicas/nosso-aviao.mp3"},
@@ -782,6 +843,26 @@ const albuns = [
       {nome: "Chulé", src: "musicas/chule.mp3"},
       {nome: "As Mãos", src: "musicas/as-maos.mp3"},
       {nome: "Trem da Fantasia", src: "musicas/trem-da-fantasia.mp3"}
+    ]
+  },
+  {
+    nome: "Álbum 1",
+    capa: "img/capa-album1.jpg",
+    musicas: [
+      {nome: "Castelo da Fantasia", src: "musicas/castelo-da-fantasia.mp3"},
+      {nome: "A Dança do Soldadinho", src: "musicas/danca-do-soldadinho.mp3"},
+      {nome: "Animais de Estimação", src: "musicas/animais-de-estimacao.mp3"},
+      {nome: "Pula Mais do Que Pipoca", src: "musicas/pula-mais-do-que-pipoca.mp3"},
+      {nome: "Canção de Ninar", src: "musicas/cancao-de-ninar.mp3"},
+      {nome: "A Formiguinha", src: "musicas/a-formiguinha.mp3"},
+      {nome: "Parabéns", src: "musicas/parabens.mp3"},
+      {nome: "Magia No Ar", src: "musicas/magia-no-ar.mp3"},
+      {nome: "As Quatro Estações do Ano", src: "musicas/as-quatro-estacoes-do-ano.mp3"},
+      {nome: "Um Mundo Mais Bonito", src: "musicas/um-mundo-mais-bonito.mp3"},
+      {nome: "Piquenique", src: "musicas/piquenique.mp3"},
+      {nome: "O Que É, o Que É?", src: "musicas/o-que-e-o-que-e.mp3"},
+      {nome: "Tabuada do Nove", src: "musicas/tabuada-do-nove.mp3"},
+      {nome: "Amigos Para Sempre", src: "musicas/amigos-para-sempre.mp3"}
     ]
   }
 ];
