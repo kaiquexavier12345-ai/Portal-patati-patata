@@ -689,131 +689,135 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 
 </section>
 
-<section id="musicas" style="padding:40px; font-family:'Arial', sans-serif; background:#fceedd; color:#000;">
-  <h2 style="text-align:center; margin-bottom:30px; font-size:2em; color:#e60000;">🎵 Músicas Patati Patatá</h2>
+<section id="musicas">
+    <h2 style="text-align:center; color:#e60000; margin-top:20px;">🎵 Músicas Patati Patatá</h2>
 
-  <!-- PLAYER ESTILO SPOTIFY -->
-  <div id="player-spotify" style="display:flex; align-items:center; gap:15px; background:#1db954; padding:15px; border-radius:15px; color:#fff; flex-wrap:wrap;">
-    <img id="capa-player-spotify" src="img/capa-placeholder.jpg" style="width:80px; height:80px; object-fit:cover; border-radius:10px;">
-    <div style="flex:1; min-width:180px;">
-      <div id="nome-musica-spotify" style="font-weight:bold; margin-bottom:5px;">Escolha uma música</div>
-      <div style="display:flex; align-items:center; gap:10px;">
-        <span id="tempo-atual">0:00</span>
-        <input type="range" id="barra-progresso" value="0" min="0" max="100" style="flex:1;">
-        <span id="tempo-total">0:00</span>
-      </div>
+    <!-- PLAYER PRINCIPAL -->
+    <div id="player-principal">
+        <img id="capa-player" src="img/capa-placeholder.jpg" alt="Capa do player">
+        <div id="info-musica">
+            <div id="nome-musica-atual">Escolha uma música</div>
+            <input type="range" id="progresso" value="0" min="0" max="100">
+            <div id="player-controles">
+                <button id="prev">⏮️</button>
+                <button id="play">▶️</button>
+                <button id="next">⏭️</button>
+            </div>
+        </div>
     </div>
-    <div style="display:flex; gap:10px; align-items:center;">
-      <button id="prev-spotify" style="font-size:1.5em; background:none; border:none; color:#fff; cursor:pointer;">⏮️</button>
-      <button id="play-spotify" style="font-size:1.5em; background:none; border:none; color:#fff; cursor:pointer;">▶️</button>
-      <button id="next-spotify" style="font-size:1.5em; background:none; border:none; color:#fff; cursor:pointer;">⏭️</button>
+
+    <!-- ÁLBUNS -->
+    <div class="album">
+        <h3><img src="img/capa_grandes.jpg" alt=""> Os Grandes Sucessos</h3>
+        <ul>
+            <li class="musica" data-src="musicas/Se_Voce_Quer_Sorrir.mp3" data-capa="img/capa_grandes.jpg">Se Você Quer Sorrir</li>
+            <li class="musica" data-src="musicas/Nosso_Aviao.mp3" data-capa="img/capa_grandes.jpg">Nosso Avião</li>
+            <li class="musica" data-src="musicas/A_Danca_Do_Macaco.mp3" data-capa="img/capa_grandes.jpg">A Dança Do Macaco</li>
+            <li class="musica" data-src="musicas/Trava_Linguas.mp3" data-capa="img/capa_grandes.jpg">Trava Línguas</li>
+            <li class="musica" data-src="musicas/Hora_Da_Refeicao.mp3" data-capa="img/capa_grandes.jpg">Hora Da Refeição</li>
+            <li class="musica" data-src="musicas/Mundo_Encantado.mp3" data-capa="img/capa_grandes.jpg">Mundo Encantado</li>
+            <li class="musica" data-src="musicas/A_Minha_Velha.mp3" data-capa="img/capa_grandes.jpg">A Minha Velha</li>
+            <li class="musica" data-src="musicas/A_Lingua_Do_P.mp3" data-capa="img/capa_grandes.jpg">A Língua Do "P"</li>
+            <li class="musica" data-src="musicas/A_Grama_Foi_Crescendo.mp3" data-capa="img/capa_grandes.jpg">A Grama Foi Crescendo</li>
+            <li class="musica" data-src="musicas/Chuveiro_Chuveiro.mp3" data-capa="img/capa_grandes.jpg">Chuveiro, Chuveiro</li>
+            <li class="musica" data-src="musicas/Meu_Cachorrinho.mp3" data-capa="img/capa_grandes.jpg">Meu Cachorrinho</li>
+            <li class="musica" data-src="musicas/Chule.mp3" data-capa="img/capa_grandes.jpg">Chulé</li>
+            <li class="musica" data-src="musicas/As_Maos.mp3" data-capa="img/capa_grandes.jpg">As Mãos</li>
+            <li class="musica" data-src="musicas/O_Trem_Da_Fantasia.mp3" data-capa="img/capa_grandes.jpg">O Trem Da Fantasia</li>
+        </ul>
     </div>
-    <audio id="audio-spotify"></audio>
-  </div>
 
-  <!-- LISTA DE MÚSICAS -->
-  <div id="albuns-container" style="margin-top:30px;">
-    <h3>📀 Os Grandes Sucessos</h3>
-    <ul>
-      <li class="musica" data-src="musicas/Se_Voce_Quer_Sorrir.mp3" data-capa="img/capa_grandes.jpg">Se Você Quer Sorrir</li>
-      <li class="musica" data-src="musicas/Nosso_Aviao.mp3" data-capa="img/capa_grandes.jpg">Nosso Avião</li>
-      <li class="musica" data-src="musicas/A_Danca_Do_Macaco.mp3" data-capa="img/capa_grandes.jpg">A Dança Do Macaco</li>
-      <li class="musica" data-src="musicas/Trava_Linguas.mp3" data-capa="img/capa_grandes.jpg">Trava Línguas</li>
-      <li class="musica" data-src="musicas/Hora_Da_Refeicao.mp3" data-capa="img/capa_grandes.jpg">Hora Da Refeição</li>
-      <li class="musica" data-src="musicas/Mundo_Encantado.mp3" data-capa="img/capa_grandes.jpg">Mundo Encantado</li>
-      <li class="musica" data-src="musicas/A_Minha_Velha.mp3" data-capa="img/capa_grandes.jpg">A Minha Velha</li>
-      <li class="musica" data-src="musicas/A_Lingua_Do_P.mp3" data-capa="img/capa_grandes.jpg">A Língua Do "P"</li>
-      <li class="musica" data-src="musicas/A_Grama_Foi_Crescendo.mp3" data-capa="img/capa_grandes.jpg">A Grama Foi Crescendo</li>
-      <li class="musica" data-src="musicas/Chuveiro_Chuveiro.mp3" data-capa="img/capa_grandes.jpg">Chuveiro, Chuveiro</li>
-      <li class="musica" data-src="musicas/Meu_Cachorrinho.mp3" data-capa="img/capa_grandes.jpg">Meu Cachorrinho</li>
-      <li class="musica" data-src="musicas/Chule.mp3" data-capa="img/capa_grandes.jpg">Chulé</li>
-      <li class="musica" data-src="musicas/As_Maos.mp3" data-capa="img/capa_grandes.jpg">As Mãos</li>
-      <li class="musica" data-src="musicas/O_Trem_Da_Fantasia.mp3" data-capa="img/capa_grandes.jpg">O Trem Da Fantasia</li>
-    </ul>
+    <div class="album">
+        <h3><img src="img/capa_castelo.jpg" alt=""> Castelo da Fantasia</h3>
+        <ul>
+            <li class="musica" data-src="musicas/Castelo_Da_Fantasia.mp3" data-capa="img/capa_castelo.jpg">Castelo Da Fantasia</li>
+            <li class="musica" data-src="musicas/A_Danca_Do_Soldadinho.mp3" data-capa="img/capa_castelo.jpg">A Dança Do Soldadinho</li>
+            <li class="musica" data-src="musicas/Animais_De_Estimacao.mp3" data-capa="img/capa_castelo.jpg">Animais De Estimação</li>
+            <li class="musica" data-src="musicas/Pula_Mais_Do_Que_Pipoca.mp3" data-capa="img/capa_castelo.jpg">Pula Mais Do Que Pipoca</li>
+            <li class="musica" data-src="musicas/Cancao_De_Ninar.mp3" data-capa="img/capa_castelo.jpg">Canção De Ninar</li>
+            <li class="musica" data-src="musicas/A_Formiguinha.mp3" data-capa="img/capa_castelo.jpg">A Formiguinha</li>
+            <li class="musica" data-src="musicas/Parabens.mp3" data-capa="img/capa_castelo.jpg">Parabéns</li>
+            <li class="musica" data-src="musicas/Magia_No_Ar.mp3" data-capa="img/capa_castelo.jpg">Magia No Ar</li>
+            <li class="musica" data-src="musicas/As_Quatro_Estacoes_Do_Ano.mp3" data-capa="img/capa_castelo.jpg">As Quatro Estações Do Ano</li>
+            <li class="musica" data-src="musicas/Um_Mundo_Mais_Bonito.mp3" data-capa="img/capa_castelo.jpg">Um Mundo Mais Bonito</li>
+            <li class="musica" data-src="musicas/Piquenique.mp3" data-capa="img/capa_castelo.jpg">Piquenique</li>
+            <li class="musica" data-src="musicas/O_Que_E_O_Que_E.mp3" data-capa="img/capa_castelo.jpg">O Que É, O Que É?</li>
+            <li class="musica" data-src="musicas/Tabuada_Do_Nove.mp3" data-capa="img/capa_castelo.jpg">Tabuada Do Nove</li>
+            <li class="musica" data-src="musicas/Amigos_Para_Sempre.mp3" data-capa="img/capa_castelo.jpg">Amigos Para Sempre</li>
+        </ul>
+    </div>
 
-    <h3>📀 Castelo da Fantasia</h3>
-    <ul>
-      <li class="musica" data-src="musicas/Castelo_Da_Fantasia.mp3" data-capa="img/capa_castelo.jpg">Castelo Da Fantasia</li>
-      <li class="musica" data-src="musicas/A_Danca_Do_Soldadinho.mp3" data-capa="img/capa_castelo.jpg">A Dança Do Soldadinho</li>
-      <li class="musica" data-src="musicas/Animais_De_Estimacao.mp3" data-capa="img/capa_castelo.jpg">Animais De Estimação</li>
-      <li class="musica" data-src="musicas/Pula_Mais_Do_Que_Pipoca.mp3" data-capa="img/capa_castelo.jpg">Pula Mais Do Que Pipoca</li>
-      <li class="musica" data-src="musicas/Cancao_De_Ninar.mp3" data-capa="img/capa_castelo.jpg">Canção De Ninar</li>
-      <li class="musica" data-src="musicas/A_Formiguinha.mp3" data-capa="img/capa_castelo.jpg">A Formiguinha</li>
-      <li class="musica" data-src="musicas/Parabens.mp3" data-capa="img/capa_castelo.jpg">Parabéns</li>
-      <li class="musica" data-src="musicas/Magia_No_Ar.mp3" data-capa="img/capa_castelo.jpg">Magia No Ar</li>
-      <li class="musica" data-src="musicas/As_Quatro_Estacoes_Do_Ano.mp3" data-capa="img/capa_castelo.jpg">As Quatro Estações Do Ano</li>
-      <li class="musica" data-src="musicas/Um_Mundo_Mais_Bonito.mp3" data-capa="img/capa_castelo.jpg">Um Mundo Mais Bonito</li>
-      <li class="musica" data-src="musicas/Piquenique.mp3" data-capa="img/capa_castelo.jpg">Piquenique</li>
-      <li class="musica" data-src="musicas/O_Que_E_O_Que_E.mp3" data-capa="img/capa_castelo.jpg">O Que É, O Que É?</li>
-      <li class="musica" data-src="musicas/Tabuada_Do_Nove.mp3" data-capa="img/capa_castelo.jpg">Tabuada Do Nove</li>
-      <li class="musica" data-src="musicas/Amigos_Para_Sempre.mp3" data-capa="img/capa_castelo.jpg">Amigos Para Sempre</li>
-    </ul>
-  </div>
 </section>
 
+<audio id="player-geral"></audio>
+
 <script>
-document.addEventListener("DOMContentLoaded", ()=>{
-  const audio = document.getElementById('audio-spotify');
-  const btnPlay = document.getElementById('play-spotify');
-  const btnNext = document.getElementById('next-spotify');
-  const btnPrev = document.getElementById('prev-spotify');
-  const capa = document.getElementById('capa-player-spotify');
-  const nome = document.getElementById('nome-musica-spotify');
-  const barra = document.getElementById('barra-progresso');
-  const tempoAtual = document.getElementById('tempo-atual');
-  const tempoTotal = document.getElementById('tempo-total');
+document.addEventListener('DOMContentLoaded', () => {
+    const player = document.getElementById('player-geral');
+    const nomeMusica = document.getElementById('nome-musica-atual');
+    const capaPlayer = document.getElementById('capa-player');
+    const btnPlay = document.getElementById('play');
+    const btnPrev = document.getElementById('prev');
+    const btnNext = document.getElementById('next');
+    const progresso = document.getElementById('progresso');
 
-  let musicas = [];
-  let indexAtual = -1;
-  let tocouUmaVez = false;
+    const musicas = Array.from(document.querySelectorAll('.musica'));
+    let indexAtual = -1;
 
-  function tocarMusica(src,capaSrc,nomeMusica,e){
-    if(e) e.preventDefault();
-    audio.src = src;
-    audio.load();
-    audio.play().catch(()=>{});
-    capa.src = capaSrc;
-    nome.textContent = nomeMusica;
+    function tocarAgora(src, capa, nome) {
+        player.src = src;
+        player.load();
+        player.play().catch(() => { console.log('Toque necessário no celular'); });
 
-    const existeIndex = musicas.findIndex(m=>m.src===src);
-    if(existeIndex===-1){ musicas.push({src,capa:capaSrc,nome:nomeMusica}); indexAtual=musicas.length-1;}
-    else indexAtual=existeIndex;
+        nomeMusica.textContent = nome;
+        capaPlayer.src = capa;
 
-    document.querySelectorAll('.musica').forEach(item=>item.classList.remove('tocando'));
-    const itemAtual = Array.from(document.querySelectorAll('.musica')).find(i=>i.textContent===nomeMusica);
-    if(itemAtual) itemAtual.classList.add('tocando');
-  }
+        musicas.forEach(m => m.classList.remove('tocando'));
+        const item = musicas.find(m => m.textContent === nome);
+        if(item) item.classList.add('tocando');
 
-  function tocarProximo(){ if(!musicas.length) return; indexAtual=(indexAtual+1)%musicas.length; const m=musicas[indexAtual]; tocarMusica(m.src,m.capa,m.nome);}
-  function tocarAnterior(){ if(!musicas.length) return; indexAtual=(indexAtual-1+musicas.length)%musicas.length; const m=musicas[indexAtual]; tocarMusica(m.src,m.capa,m.nome);}
+        indexAtual = musicas.findIndex(m => m.textContent === nome);
+    }
 
-  btnPlay.addEventListener('click', ()=>{ if(audio.paused) audio.play(); else audio.pause();});
-  btnNext.addEventListener('click',tocarProximo);
-  btnPrev.addEventListener('click',tocarAnterior);
-
-  audio.addEventListener('play',()=>btnPlay.textContent='⏸️');
-  audio.addEventListener('pause',()=>btnPlay.textContent='▶️');
-  audio.addEventListener('timeupdate', ()=>{
-    const perc = (audio.currentTime/audio.duration)*100||0;
-    barra.value = perc;
-    const min = Math.floor(audio.currentTime/60);
-    const seg = Math.floor(audio.currentTime%60);
-    tempoAtual.textContent = `${min}:${seg<10?'0'+seg:seg}`;
-    const minT = Math.floor(audio.duration/60)||0;
-    const segT = Math.floor(audio.duration%60)||0;
-    tempoTotal.textContent = `${minT}:${segT<10?'0'+segT:segT}`;
-  });
-
-  barra.addEventListener('input', ()=>{ audio.currentTime=(barra.value/100)*audio.duration; });
-
-  document.querySelectorAll('.musica').forEach(item=>{
-    item.addEventListener('click', e=>{
-      const src = item.dataset.src;
-      const capaSrc = item.dataset.capa;
-      const nomeMusica = item.textContent;
-      tocarMusica(src,capaSrc,nomeMusica,e);
+    musicas.forEach(item => {
+        item.addEventListener('click', () => {
+            tocarAgora(item.dataset.src, item.dataset.capa, item.textContent);
+        });
     });
-  });
+
+    btnPlay.addEventListener('click', () => {
+        if(player.paused) player.play();
+        else player.pause();
+    });
+
+    btnPrev.addEventListener('click', () => {
+        if(indexAtual <= 0) indexAtual = musicas.length;
+        indexAtual--;
+        const m = musicas[indexAtual];
+        tocarAgora(m.dataset.src, m.dataset.capa, m.textContent);
+    });
+
+    btnNext.addEventListener('click', () => {
+        indexAtual++;
+        if(indexAtual >= musicas.length) indexAtual = 0;
+        const m = musicas[indexAtual];
+        tocarAgora(m.dataset.src, m.dataset.capa, m.textContent);
+    });
+
+    player.addEventListener('timeupdate', () => {
+        if(player.duration) {
+            progresso.value = (player.currentTime / player.duration) * 100;
+        }
+    });
+
+    progresso.addEventListener('input', () => {
+        if(player.duration) {
+            player.currentTime = (progresso.value / 100) * player.duration;
+        }
+    });
+
+    player.addEventListener('play', () => btnPlay.textContent = '⏸️');
+    player.addEventListener('pause', () => btnPlay.textContent = '▶️');
 });
 </script>
 
