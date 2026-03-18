@@ -6,6 +6,54 @@
 <title>🎪 Portal Patati Patatá 🎪 - Fã Site</title>
 
 <style>
+
+    body {
+    background: linear-gradient(135deg, #00aaff, #ffffff, #ff0000, #00ff00);
+    background-size: 400% 400%;
+}
+    .main-player {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.3);
+}
+
+.main-player button {
+    background-color: #ffdd00; /* Amarelo do Patati Patatá */
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    color: #000;
+}
+
+    .albums-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+.album {
+    background: rgba(255,255,255,0.8);
+    border-radius: 15px;
+    overflow: hidden;
+    width: 90%;
+    max-width: 350px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.album:hover {
+    transform: scale(1.03);
+}
     
 body {
     margin: 0;
@@ -1012,6 +1060,14 @@ function fecharImagem() {
 
 
 <script>
+
+    document.querySelectorAll('.music-track').forEach(track => {
+    track.addEventListener('click', () => {
+        mainAudio.src = track.dataset.src; // troca música
+        mainAudio.play();
+    });
+});
+    
 
 // =======================
 // 🔀 TROCA DE ABAS
