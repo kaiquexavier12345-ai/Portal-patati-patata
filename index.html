@@ -5,7 +5,131 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🎪 Portal Patati Patatá 🎪 - Fã Site</title>
 
-<style>
+<style> 
+
+    body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #00aaff, #ff0000, #00ff00, #ffff00);
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+/* PLAYER PRINCIPAL */
+#player-principal {
+    display: flex;
+    align-items: center;
+    background: #222;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 20px auto;
+    max-width: 700px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+#player-principal img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 20px;
+    transition: transform 0.5s linear;
+}
+
+.rotating {
+    animation: girar 8s linear infinite;
+}
+
+@keyframes girar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#info-musica {
+    flex: 1;
+}
+
+#nome-musica-atual {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+
+#player-controles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#player-controles button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+#progresso-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#progresso {
+    flex: 1;
+    cursor: pointer;
+}
+
+/* ESTILO DAS MÚSICAS - tipo Spotify */
+.musica {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 8px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.musica:hover {
+    background: #ffcc00;
+    color: #000;
+}
+
+.musica.tocando {
+    background: #00ff00;
+    font-weight: bold;
+}
+
+/* ÁLBUNS */
+.album {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background: #222;
+}
+
+.album h3 {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.album img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.album ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0 0;
+}
 
 body {
     font-family: Arial, sans-serif;
