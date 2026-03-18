@@ -775,6 +775,62 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
         </ul>
     </div>
 
+    <h2>🎵 Álbum: Grandes Sucessos</h2>
+
+    <!-- Player geral -->
+    <div class="album-player">
+        <img src="img/capa-album1.jpg" alt="Capa do Álbum" class="capa-player">
+        <h3>Castelo da Fantasia</h3>
+        <audio id="player-geral" controls></audio>
+    </div>
+
+    <!-- Lista de músicas -->
+    <div class="playlist-album">
+        <div class="track" data-src="musicas/castelo-da-fantasia.mp3">
+            <p>Castelo da Fantasia</p>
+        </div>
+        <div class="track" data-src="musicas/a-danca-do-soldadinho.mp3">
+            <p>A Dança do Soldadinho</p>
+        </div>
+        <div class="track" data-src="musicas/animais-de-estimacao.mp3">
+            <p>Animais de Estimação</p>
+        </div>
+        <div class="track" data-src="musicas/pula-mais-do-que-pipoca.mp3">
+            <p>Pula Mais do Que Pipoca</p>
+        </div>
+        <div class="track" data-src="musicas/cancao-de-ninar.mp3">
+            <p>Canção de Ninar</p>
+        </div>
+        <div class="track" data-src="musicas/a-formiguinha.mp3">
+            <p>A Formiguinha</p>
+        </div>
+        <div class="track" data-src="musicas/parabens.mp3">
+            <p>Parabéns</p>
+        </div>
+        <div class="track" data-src="musicas/magia-no-ar.mp3">
+            <p>Magia No Ar</p>
+        </div>
+        <div class="track" data-src="musicas/as-quatro-estacoes-do-ano.mp3">
+            <p>As Quatro Estações do Ano</p>
+        </div>
+        <div class="track" data-src="musicas/um-mundo-mais-bonito.mp3">
+            <p>Um Mundo Mais Bonito</p>
+        </div>
+        <div class="track" data-src="musicas/piquenique.mp3">
+            <p>Piquenique</p>
+        </div>
+        <div class="track" data-src="musicas/o-que-e-o-que-e.mp3">
+            <p>O Que É, o Que É?</p>
+        </div>
+        <div class="track" data-src="musicas/tabuada-do-nove.mp3">
+            <p>Tabuada do Nove</p>
+        </div>
+        <div class="track" data-src="musicas/amigos-para-sempre.mp3">
+            <p>Amigos Para Sempre</p>
+        </div>
+    </div>
+    
+
 </section>
     
 </section>
@@ -1016,6 +1072,34 @@ function showTab(tabId) {
     document.getElementById(tabId).classList.add("active");
 }
 
+    const player = document.getElementById("player-geral");
+const tracks = document.querySelectorAll(".track");
+
+let current = 0;
+
+function playTrack(index) {
+    const src = tracks[index].dataset.src;
+    player.src = src;
+    player.play();
+    current = index;
+}
+
+// Tocar música ao clicar
+tracks.forEach((track, i) => {
+    track.addEventListener("click", () => {
+        playTrack(i);
+    });
+});
+
+// Tocar próxima música automaticamente
+player.addEventListener("ended", () => {
+    current = (current + 1) % tracks.length;
+    playTrack(current);
+});
+
+// Iniciar a primeira música
+playTrack(0);
+    
 // =======================
 // 🚀 INICIAR TUDO
 // =======================
