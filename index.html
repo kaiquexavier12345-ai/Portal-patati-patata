@@ -1035,7 +1035,7 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 
 </footer>
 
-  <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
 
   // ===== LIGHTBOX =====
@@ -1058,10 +1058,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnPlay = document.getElementById('play');
   const btnPrev = document.getElementById('prev');
   const btnNext = document.getElementById('next');
+  const itensMusica = document.querySelectorAll('.musica');
 
   let musicas = [];
   let indexAtual = -1;
-  const itensMusica = document.querySelectorAll('.musica');
 
   function limparTocando() {
       itensMusica.forEach(m => m.classList.remove('tocando'));
@@ -1072,7 +1072,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       player.src = src;
       player.load();
-
       player.play().catch(() => {
           alert("Toque na música novamente para iniciar no celular.");
       });
@@ -1085,7 +1084,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if(item) item.classList.add('tocando');
 
       const existeIndex = musicas.findIndex(m => m.src === src);
-      if (existeIndex === -1) {
+      if(existeIndex === -1){
           musicas.push({src, capa, nome});
           indexAtual = musicas.length - 1;
       } else {
@@ -1094,20 +1093,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function tocarProximo() {
-      if (!musicas.length) return;
+      if(!musicas.length) return;
       indexAtual = (indexAtual + 1) % musicas.length;
       const m = musicas[indexAtual];
       tocarAgora(m.src, m.capa, m.nome);
   }
 
   function tocarAnterior() {
-      if (!musicas.length) return;
+      if(!musicas.length) return;
       indexAtual = (indexAtual - 1 + musicas.length) % musicas.length;
       const m = musicas[indexAtual];
       tocarAgora(m.src, m.capa, m.nome);
   }
 
-  // ===== BOTÕES PLAYER =====
   btnPlay.addEventListener('click', () => {
       if(player.paused) player.play();
       else player.pause();
@@ -1119,7 +1117,6 @@ document.addEventListener("DOMContentLoaded", () => {
   player.addEventListener('play', () => btnPlay.textContent = '⏸️');
   player.addEventListener('pause', () => btnPlay.textContent = '▶️');
 
-  // ===== CLIQUE NAS MÚSICAS =====
   itensMusica.forEach(item => {
       item.addEventListener('click', (e) => {
           const src = item.dataset.src;
@@ -1135,11 +1132,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   abas.forEach((aba, index) => {
       aba.addEventListener('click', () => {
+          // Remove a classe ativa de todas
           abas.forEach(a => a.classList.remove('ativa'));
+          // Adiciona a ativa à clicada
           aba.classList.add('ativa');
 
+          // Esconde todos conteúdos
           conteudos.forEach(c => c.style.display = 'none');
-          conteudos[index].style.display = 'block';
+          // Mostra o conteúdo correto
+          if(conteudos[index]) conteudos[index].style.display = 'block';
       });
   });
 
@@ -1148,13 +1149,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const slides = document.querySelectorAll(".slide");
 
   function updateCarousel() {
-      if (!slides.length) return;
+      if(!slides.length) return;
       slides.forEach(slide => slide.classList.remove("active"));
       slides[currentSlide].classList.add("active");
   }
 
   function nextSlide() {
-      if (!slides.length) return;
+      if(!slides.length) return;
       currentSlide = (currentSlide + 1) % slides.length;
       updateCarousel();
   }
@@ -1171,10 +1172,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function carregarMateriasHome() {
       const container = document.querySelector(".materias-home");
-      if (!container) return;
-
+      if(!container) return;
       container.innerHTML = "";
-      materias.slice(0, 3).forEach(m => {
+      materias.slice(0,3).forEach(m => {
           container.innerHTML += `
               <div class="card">
                   <h4>${m.titulo}</h4>
@@ -1186,8 +1186,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function carregarMateriasPagina() {
       const container = document.querySelector("#materias");
-      if (!container) return;
-
+      if(!container) return;
       container.innerHTML = "<h2>📰 Matérias</h2>";
       materias.forEach(m => {
           container.innerHTML += `
