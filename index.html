@@ -741,132 +741,11 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 </section>
 
 <section id="musicas">
-
   <h2>🎵 Portal Patati Patatá - Músicas</h2>
 
-  <!-- PLAYER GERAL (toca todas as músicas do site) -->
+  <!-- PLAYER GERAL -->
   <div class="player-geral">
       <img src="img/capa-album.jpg" alt="Capa do player geral" class="capa-player">
-      <div class="info-player">
-          <h3 id="nome-musica-atual">Castelo da Fantasia</h3>
-          <audio id="player-geral" controls></audio>
-      </div>
-  </div>
-
-  <!-- LISTA DE TODAS AS MÚSICAS -->
-  <div class="playlist-spotify">
-      <ul id="playlist-geral"></ul>
-  </div>
-
-  <!-- ÁLBUM: CASTELO DA FANTASIA -->
-  <h2>🎵 Álbum: Castelo da Fantasia</h2>
-
-  <div class="album-player">
-      <img src="img/capa-album1.jpg" alt="Capa do Álbum" class="capa-player">
-      <h3>Castelo da Fantasia</h3>
-      <audio id="player-album1" controls></audio>
-  </div>
-
-  <div class="playlist-album" id="playlist-album1">
-      <div class="track" data-src="musicas/castelo-da-fantasia.mp3">Castelo da Fantasia</div>
-      <div class="track" data-src="musicas/a-danca-do-soldadinho.mp3">A Dança do Soldadinho</div>
-      <div class="track" data-src="musicas/animais-de-estimacao.mp3">Animais de Estimação</div>
-      <div class="track" data-src="musicas/pula-mais-do-que-pipoca.mp3">Pula Mais do Que Pipoca</div>
-      <div class="track" data-src="musicas/cancao-de-ninar.mp3">Canção de Ninar</div>
-      <div class="track" data-src="musicas/a-formiguinha.mp3">A Formiguinha</div>
-      <div class="track" data-src="musicas/parabens.mp3">Parabéns</div>
-      <div class="track" data-src="musicas/magia-no-ar.mp3">Magia No Ar</div>
-      <div class="track" data-src="musicas/as-quatro-estacoes-do-ano.mp3">As Quatro Estações do Ano</div>
-      <div class="track" data-src="musicas/um-mundo-mais-bonito.mp3">Um Mundo Mais Bonito</div>
-      <div class="track" data-src="musicas/piquenique.mp3">Piquenique</div>
-      <div class="track" data-src="musicas/o-que-e-o-que-e.mp3">O Que É, o Que É?</div>
-      <div class="track" data-src="musicas/tabuada-do-nove.mp3">Tabuada do Nove</div>
-      <div class="track" data-src="musicas/amigos-para-sempre.mp3">Amigos Para Sempre</div>
-  </div>
-
-</section>
-
-<script>
-// ==========================
-// 🎵 PLAYLIST GERAL
-// ==========================
-const playlistGeralMusicas = [
-  {src:"musicas/castelo-da-fantasia.mp3", nome:"Castelo da Fantasia"},
-  {src:"musicas/a-danca-do-soldadinho.mp3", nome:"A Dança do Soldadinho"},
-  {src:"musicas/animais-de-estimacao.mp3", nome:"Animais de Estimação"},
-  {src:"musicas/pula-mais-do-que-pipoca.mp3", nome:"Pula Mais do Que Pipoca"},
-  {src:"musicas/cancao-de-ninar.mp3", nome:"Canção de Ninar"},
-  {src:"musicas/a-formiguinha.mp3", nome:"A Formiguinha"},
-  {src:"musicas/parabens.mp3", nome:"Parabéns"},
-  {src:"musicas/magia-no-ar.mp3", nome:"Magia No Ar"},
-  {src:"musicas/as-quatro-estacoes-do-ano.mp3", nome:"As Quatro Estações do Ano"},
-  {src:"musicas/um-mundo-mais-bonito.mp3", nome:"Um Mundo Mais Bonito"},
-  {src:"musicas/piquenique.mp3", nome:"Piquenique"},
-  {src:"musicas/o-que-e-o-que-e.mp3", nome:"O Que É, o Que É?"},
-  {src:"musicas/tabuada-do-nove.mp3", nome:"Tabuada do Nove"},
-  {src:"musicas/amigos-para-sempre.mp3", nome:"Amigos Para Sempre"}
-];
-
-const playlistGeralContainer = document.getElementById("playlist-geral");
-const playerGeral = document.getElementById("player-geral");
-const nomeMusicaAtual = document.getElementById("nome-musica-atual");
-let indexGeral = 0;
-
-// Carregar lista no HTML
-playlistGeralMusicas.forEach((musica,i) => {
-  const li = document.createElement("li");
-  li.textContent = musica.nome;
-  li.addEventListener("click", ()=> {
-    tocarMusicaGeral(i);
-  });
-  playlistGeralContainer.appendChild(li);
-});
-
-function tocarMusicaGeral(i){
-  playerGeral.src = playlistGeralMusicas[i].src;
-  nomeMusicaAtual.textContent = playlistGeralMusicas[i].nome;
-  playerGeral.play();
-  indexGeral = i;
-}
-
-// Próxima música automática
-playerGeral.addEventListener("ended", ()=>{
-  indexGeral = (indexGeral+1)%playlistGeralMusicas.length;
-  tocarMusicaGeral(indexGeral);
-});
-
-// ==========================
-// 🎵 PLAYER DE ÁLBUM 1
-// ==========================
-const playerAlbum1 = document.getElementById("player-album1");
-const tracksAlbum1 = document.querySelectorAll("#playlist-album1 .track");
-let currentAlbum1 = 0;
-
-function playTrackAlbum1(index){
-  const src = tracksAlbum1[index].dataset.src;
-  playerAlbum1.src = src;
-  playerAlbum1.play();
-  currentAlbum1 = index;
-}
-
-// Cliques
-tracksAlbum1.forEach((track,i)=>{
-  track.addEventListener("click",()=>playTrackAlbum1(i));
-});
-
-// Próxima automática
-playerAlbum1.addEventListener("ended", ()=>{
-  currentAlbum1 = (currentAlbum1+1)%tracksAlbum1.length;
-  playTrackAlbum1(currentAlbum1);
-});
-
-// Iniciar primeira música
-playTrackAlbum1(0);
-</script>
-
-<!-- PLAYER GERAL -->
-  <div class="player-geral">
-      <img src="img/capa-album-geral.jpg" alt="Capa do player geral" class="capa-player">
       <div class="info-player">
           <h3 id="nome-musica-atual">Escolha uma música</h3>
           <audio id="player-geral" controls></audio>
@@ -874,17 +753,16 @@ playTrackAlbum1(0);
   </div>
 
   <!-- PLAYLIST GERAL -->
-  <div class="playlist-spotify">
-      <ul id="playlist-geral"></ul>
-  </div>
+  <div class="playlist-spotify" id="playlist-geral"></div>
 
-  <!-- ÁLBUNS -->
+  <!-- ÁLBUMS -->
   <div id="albuns-container"></div>
+</section>
 
 <script>
-// ==========================
-// 🎵 DADOS DO ÁLBUM
-// ==========================
+// =======================
+// 🎵 DADOS DOS ÁLBUNS
+// =======================
 const albuns = [
   {
     nome: "Clássicos Patati Patatá",
@@ -899,7 +777,7 @@ const albuns = [
       {nome: "A Minha Velha", src: "musicas/a-minha-velha.mp3"},
       {nome: "A Língua do P", src: "musicas/lingua-do-p.mp3"},
       {nome: "A Grama Foi Crescendo", src: "musicas/a-grama-foi-crescendo.mp3"},
-      {nome: "Chuveiro, chuveiro", src: "musicas/chuveiro.mp3"},
+      {nome: "Chuveiro, Chuveiro", src: "musicas/chuveiro.mp3"},
       {nome: "Meu Cachorrinho", src: "musicas/meu-cachorrinho.mp3"},
       {nome: "Chulé", src: "musicas/chule.mp3"},
       {nome: "As Mãos", src: "musicas/as-maos.mp3"},
@@ -908,93 +786,87 @@ const albuns = [
   }
 ];
 
-// ==========================
+// =======================
 // 🎵 PLAYER GERAL
-// ==========================
+// =======================
 const playerGeral = document.getElementById("player-geral");
-const playlistGeralContainer = document.getElementById("playlist-geral");
+const playlistContainer = document.getElementById("playlist-geral");
 const nomeMusicaAtual = document.getElementById("nome-musica-atual");
 
-let indexGeral = 0;
+let indexAtual = 0;
 
-// Criar playlist geral (todas as músicas do álbum)
-const todasMusicas = albuns[0].musicas;
+// Montar playlist geral (todas as músicas de todos os álbuns)
+const todasMusicas = albuns.flatMap(a => a.musicas);
 
-todasMusicas.forEach((musica,i)=>{
-  const li = document.createElement("li");
-  li.textContent = musica.nome;
-  li.addEventListener("click", ()=>{
-    tocarMusicaGeral(i);
-  });
-  playlistGeralContainer.appendChild(li);
+todasMusicas.forEach((musica, i) => {
+    const li = document.createElement("li");
+    li.textContent = musica.nome;
+    li.addEventListener("click", () => tocarMusica(i));
+    playlistContainer.appendChild(li);
 });
 
-function tocarMusicaGeral(i){
-  playerGeral.src = todasMusicas[i].src;
-  nomeMusicaAtual.textContent = todasMusicas[i].nome;
-  playerGeral.play();
-  indexGeral = i;
+function tocarMusica(i){
+    playerGeral.src = todasMusicas[i].src;
+    nomeMusicaAtual.textContent = todasMusicas[i].nome;
+    playerGeral.play();
+    indexAtual = i;
 }
 
-playerGeral.addEventListener("ended", ()=>{
-  indexGeral = (indexGeral+1) % todasMusicas.length;
-  tocarMusicaGeral(indexGeral);
+// Próxima música automática
+playerGeral.addEventListener("ended", () => {
+    indexAtual = (indexAtual + 1) % todasMusicas.length;
+    tocarMusica(indexAtual);
 });
 
-// ==========================
-// 🎵 CRIAR PLAYER DO ÁLBUM
-// ==========================
+// =======================
+// 🎵 CRIAR PLAYLIST DE CADA ÁLBUM
+// =======================
 const albunsContainer = document.getElementById("albuns-container");
 
-albuns.forEach((album, albumIndex)=>{
+albuns.forEach((album, albumIndex) => {
 
-  // Criar container do álbum
-  const divAlbum = document.createElement("div");
-  divAlbum.className = "album-player-container";
+    const divAlbum = document.createElement("div");
+    divAlbum.className = "album-player-container";
 
-  // Título e capa
-  divAlbum.innerHTML = `
-    <h2>🎵 Álbum: ${album.nome}</h2>
-    <div class="album-player">
-        <img src="${album.capa}" alt="Capa do Álbum" class="capa-player">
-        <audio id="player-album-${albumIndex}" controls></audio>
-    </div>
-    <div class="playlist-album" id="playlist-album-${albumIndex}"></div>
-  `;
+    divAlbum.innerHTML = `
+      <h2>🎵 Álbum: ${album.nome}</h2>
+      <div class="album-player">
+          <img src="${album.capa}" alt="Capa do Álbum" class="capa-player">
+          <audio id="player-album-${albumIndex}" controls></audio>
+      </div>
+      <div class="playlist-album" id="playlist-album-${albumIndex}"></div>
+    `;
 
-  albunsContainer.appendChild(divAlbum);
+    albunsContainer.appendChild(divAlbum);
 
-  const playlistDiv = document.getElementById(`playlist-album-${albumIndex}`);
-  const playerAlbum = document.getElementById(`player-album-${albumIndex}`);
-  let currentTrack = 0;
+    const playerAlbum = document.getElementById(`player-album-${albumIndex}`);
+    const playlistDiv = document.getElementById(`playlist-album-${albumIndex}`);
+    let currentTrack = 0;
 
-  // Adicionar músicas na playlist do álbum
-  album.musicas.forEach((musica, i)=>{
-    const divTrack = document.createElement("div");
-    divTrack.className = "track";
-    divTrack.dataset.src = musica.src;
-    divTrack.textContent = musica.nome;
-    divTrack.addEventListener("click", ()=>playTrackAlbum(i));
-    playlistDiv.appendChild(divTrack);
-  });
+    album.musicas.forEach((musica, i) => {
+        const trackDiv = document.createElement("div");
+        trackDiv.className = "track";
+        trackDiv.dataset.src = musica.src;
+        trackDiv.textContent = musica.nome;
+        trackDiv.addEventListener("click", () => playTrackAlbum(i));
+        playlistDiv.appendChild(trackDiv);
+    });
 
-  function playTrackAlbum(index){
-    playerAlbum.src = album.musicas[index].src;
-    playerAlbum.play();
-    currentTrack = index;
-  }
+    function playTrackAlbum(i){
+        playerAlbum.src = album.musicas[i].src;
+        playerAlbum.play();
+        currentTrack = i;
+    }
 
-  // Próxima música automática
-  playerAlbum.addEventListener("ended", ()=>{
-    currentTrack = (currentTrack+1) % album.musicas.length;
-    playTrackAlbum(currentTrack);
-  });
+    playerAlbum.addEventListener("ended", () => {
+        currentTrack = (currentTrack + 1) % album.musicas.length;
+        playTrackAlbum(currentTrack);
+    });
 
-  // Iniciar primeira música automaticamente
-  playTrackAlbum(0);
+    // Toca primeira música do álbum
+    playTrackAlbum(0);
 });
-    
-</section>
+</script>
 
 <!-- FOTOS -->
 <section id="fotos">
