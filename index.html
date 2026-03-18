@@ -7,6 +7,28 @@
 
 <style>
 
+    #player {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* mantém o texto no centro */
+  padding: 10px 0;
+  box-shadow: 0 -3px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+/* Botões juntos no centro */
+#player button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
 .album {
     background: rgba(255,255,255,0.8);
     border-radius: 15px;
@@ -714,12 +736,14 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
             <audio id="player-geral" controls style="width:100%; outline:none;">
                 Seu navegador não suporta o elemento de áudio.
             </audio>
-            <div style="margin-top:10px;">
-                <button onclick="tocarAnterior()" style="padding:8px 12px; margin-right:10px; background:#ffcc00; border:none; border-radius:50px; color:#000; cursor:pointer;">⏮️</button>
-                <button onclick="tocarProximo()" style="padding:8px 12px; background:#ff0000; border:none; border-radius:50px; color:#fff; cursor:pointer;">⏭️</button>
-            </div>
-        </div>
-    </div>
+            
+            <!-- Player Principal -->
+<div id="player">
+  <button id="prev">⏮️</button>
+  <button id="play">▶️</button>
+  <button id="next">⏭️</button>
+  <div id="current-track">Nenhuma música tocando</div>
+</div>
 
     <!-- ÁLBUNS -->
     <div id="albuns-container" style="display:flex; flex-direction:column; gap:40px;">
@@ -1026,6 +1050,19 @@ function fecharImagem() {
 
 
 <script>
+
+    const mainAudio = document.getElementById('main-audio');
+
+document.querySelectorAll('.music-track').forEach(track => {
+    track.addEventListener('click', () => {
+        mainAudio.src = track.dataset.src; // muda a música
+        mainAudio.play().catch(() => {
+            alert("Toque na tela para iniciar a música"); 
+        });
+    });
+});
+
+    
 // =======================
 // 🔀 TROCA DE ABAS
 // =======================
