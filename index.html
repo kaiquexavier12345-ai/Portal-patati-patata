@@ -1185,6 +1185,22 @@ itensMusica.forEach(item => {
 // =======================
 // 🚀 INICIAR TUDO
 // =======================
+
+    window.onload = () => {
+  const abas = document.querySelectorAll('.aba-btn');
+  const conteudos = document.querySelectorAll('.conteudo-aba');
+
+  abas.forEach((aba, index) => {
+    aba.addEventListener('click', () => {
+      abas.forEach(a => a.classList.remove('ativa'));
+      aba.classList.add('ativa');
+
+      conteudos.forEach(c => c.style.display = 'none');
+      conteudos[index].style.display = 'block';
+    });
+  });
+};
+    
 document.addEventListener("DOMContentLoaded", function() {
 
     // 🎠 CARROSSEL
