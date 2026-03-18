@@ -7,23 +7,23 @@
 
 <style>
 
-    body {
+body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #00aaff, #ff0000, #00ff00, #ffffff);
+    background: linear-gradient(135deg, #00aaff, #ff0000, #00ff00, #ffff00);
     margin: 0;
     padding: 0;
+    color: #fff;
 }
 
-/* PLAYER PRINCIPAL - estilo Spotify */
+/* PLAYER PRINCIPAL */
 #player-principal {
     display: flex;
     align-items: center;
-    background: #121212;
+    background: #222;
     padding: 15px;
     border-radius: 12px;
     margin: 20px auto;
     max-width: 700px;
-    color: #fff;
     box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
@@ -51,7 +51,7 @@
 
 #nome-musica-atual {
     font-size: 1.2em;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 #player-controles {
@@ -68,34 +68,41 @@
     cursor: pointer;
 }
 
-#progresso {
-    width: 100%;
-}
-
-/* Estilo das músicas - estilo Spotify */
-.musica {
+#progresso-container {
     display: flex;
     align-items: center;
+    gap: 10px;
+}
+
+#progresso {
+    flex: 1;
+    cursor: pointer;
+}
+
+/* ESTILO DAS MÚSICAS - tipo Spotify */
+.musica {
+    display: flex;
     justify-content: space-between;
     padding: 10px 15px;
     margin: 5px 0;
     border-radius: 8px;
-    background: #121212;
+    background: #333;
     color: #fff;
     cursor: pointer;
     transition: background 0.2s;
 }
 
 .musica:hover {
-    background: #1db954;
+    background: #ffcc00; /* amarelo Patati Patatá */
+    color: #000;
 }
 
 .musica.tocando {
-    background: #1ed760;
+    background: #00ff00; /* verde Patati Patatá */
     font-weight: bold;
 }
 
-/* Albuns */
+/* ÁLBUNS */
 .album {
     max-width: 700px;
     margin: 20px auto;
@@ -103,7 +110,6 @@
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     background: #222;
-    color: #fff;
 }
 
 .album h3 {
@@ -807,15 +813,19 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
 
 </section>
 
-<section id="musicas">
-    <h2 style="text-align:center; color:#e60000; margin-top:20px;">🎵 Músicas Patati Patatá</h2>
+id="musicas">
+    <h2 style="text-align:center; color:#ff0000; margin-top:20px;">🎵 Músicas Patati Patatá</h2>
 
     <!-- PLAYER PRINCIPAL -->
     <div id="player-principal">
         <img id="capa-player" src="img/capa-placeholder.jpg" alt="Capa do player">
         <div id="info-musica">
             <div id="nome-musica-atual">Escolha uma música</div>
-            <input type="range" id="progresso" value="0" min="0" max="100">
+            <div id="progresso-container">
+                <span id="tempo-atual">0:00</span>
+                <input type="range" id="progresso" value="0" min="0" max="100">
+                <span id="duracao">0:00</span>
+            </div>
             <div id="player-controles">
                 <button id="prev">⏮️</button>
                 <button id="play">▶️</button>
@@ -824,7 +834,7 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
         </div>
     </div>
 
-    <!-- ÁLBUNS -->
+    <!-- ÁLBUM 1 -->
     <div class="album">
         <h3><img src="img/capa_grandes.jpg" alt=""> Os Grandes Sucessos</h3>
         <ul>
@@ -845,6 +855,7 @@ São considerados um dos maiores fenômenos infantis do Brasil, comparáveis a n
         </ul>
     </div>
 
+    <!-- ÁLBUM 2 -->
     <div class="album">
         <h3><img src="img/capa_castelo.jpg" alt=""> Castelo da Fantasia</h3>
         <ul>
@@ -878,9 +889,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnPrev = document.getElementById('prev');
     const btnNext = document.getElementById('next');
     const progresso = document.getElementById('progresso');
+    const tempoAtual = document.getElementById('tempo-atual');
+    const duracao = document.getElementById('duracao');
 
     const musicas = Array.from(document.querySelectorAll('.musica'));
     let indexAtual = -1;
+
+    function formatTime(segundos) {
+        const min = Math.floor(segundos / 60);
+        const sec = Math.floor(segundos % 60);
+        return `${min}:${sec < 10 ? '0'+sec : sec}`;
+    }
 
     function tocarAgora(src, capa, nome) {
         player.src = src;
@@ -889,6 +908,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         nomeMusica.textContent = nome;
         capaPlayer.src = capa;
+        capaPlayer.classList.add('rotating');
 
         musicas.forEach(m => m.classList.remove('tocando'));
         const item = musicas.find(m => m.textContent === nome);
@@ -925,6 +945,8 @@ document.addEventListener('DOMContentLoaded', () => {
     player.addEventListener('timeupdate', () => {
         if(player.duration) {
             progresso.value = (player.currentTime / player.duration) * 100;
+            tempoAtual.textContent = formatTime(player.currentTime);
+            duracao.textContent = formatTime(player.duration);
         }
     });
 
@@ -936,6 +958,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     player.addEventListener('play', () => btnPlay.textContent = '⏸️');
     player.addEventListener('pause', () => btnPlay.textContent = '▶️');
+    player.addEventListener('ended', () => btnNext.click());
 });
 </script>
 
